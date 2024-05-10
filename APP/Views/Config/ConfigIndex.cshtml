@@ -1,0 +1,57 @@
+﻿@model ConfigModel
+
+<div class="config-main">
+    <div class="config-content">
+        <div style="margin-bottom: 20px;">
+            <a asp-controller="Home" asp-action="Index">
+                <img src="~/images/arrow-left.svg" alt="Alternate Text" />
+            </a>
+        </div>
+        <h3>Editar Configurações</h3>
+        <form asp-action="UpdateConfig" class="config-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="d-flex justify-content-evenly">
+                <div class="d-flex flex-column align-items-center">
+                    <label asp-for="mao_de_obra" style="font-weight: 300; font-size: 28px; color: #6d3a0c;font-family: 'Kanit', sans-serif;"></label>
+                    <div class="d-flex">
+                        <input asp-for="mao_de_obra" class="config-input" />
+                        <div class="p-2 d-flex flex-column justify-content-end" style="font-size: 25px; color: #6d3a0c; font-weight: bold; font-family: 'Kanit', sans-serif;">%</div>
+                    </div>
+                    <span asp-validation-for="mao_de_obra" class="text-danger"></span>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                    <label asp-for="energia_agua" style="font-weight: 300; font-size: 28px; color: #6d3a0c;font-family: 'Kanit', sans-serif;"></label>
+                    <div class="d-flex">
+                        <input asp-for="energia_agua" class="config-input" />
+                        <div class="p-2 d-flex flex-column justify-content-end" style="font-size: 25px; color: #6d3a0c; font-weight: bold; font-family: 'Kanit', sans-serif;">%</div>
+                    </div>
+                    <span asp-validation-for="energia_agua" class="text-danger"></span>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                    <label asp-for="extra" style="font-weight: 300; font-size: 28px; color: #6d3a0c;font-family: 'Kanit', sans-serif;"></label>
+                    <div class="d-flex">
+                        <input asp-for="extra" class="config-input" />
+                        <div class="p-2 d-flex flex-column justify-content-end" style="font-size: 25px; color: #6d3a0c; font-weight: bold; font-family: 'Kanit', sans-serif;">%</div>
+                    </div>
+                    <span asp-validation-for="extra" class="text-danger"></span>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                    <label asp-for="calculo_mercado" style="font-weight: 300; font-size: 28px; color: #6d3a0c; font-family: 'Kanit', sans-serif;"></label>
+                    <div class="d-flex">
+                        <input asp-for="calculo_mercado" class="config-input" />
+                        <div class="p-2 d-flex flex-column justify-content-end" style="font-size: 25px; color: #6d3a0c; font-weight: bold; font-family: 'Kanit', sans-serif;">X</div>
+                    </div>
+                    <span asp-validation-for="calculo_mercado" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center" style="padding: 30px;width:100%;">
+                <input type="submit" class="p-1 rounded-2 btn-success" name="name" value="Salvar" style="width: 80px;" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial">
+    <script src="~/js/ValidCommaFormat.js"></script>
+}

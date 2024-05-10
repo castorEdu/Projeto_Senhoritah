@@ -1,0 +1,74 @@
+﻿.main-content {
+    display: flex;
+    height: 92vh;
+    background-color: #412E27 /*#12192C*/;
+    border-radius: 10px 0px 0px 10px;
+}
+.content-sidebar {
+    height: 92vh;
+    width: 400px;
+    padding: 20px;
+}
+.content-sidebar-recipes {
+    height: 92vh;
+    width: 1100px;
+    padding: 20px;
+}
+.form-releases {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-datasheet {
+    
+}
+.input-style {
+    background-color: #514541;
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+.input-style:focus{
+    border: none;
+    outline: none;
+}
+.btn-success {
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #198754;
+    color: #FFFFFF;
+}
+.content-page {
+    border-radius: 10px 0px 0px 10px;
+    background-color: #FFFFFF;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 50px;
+    overflow-y: auto;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.releases-message-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 86%;
+    position: absolute;
+    background-color: #7df161;
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0%;
+    animation: messageSuccess 3s ease-in-out;
+}
+@keyframes messageSuccess{
+    to{
+        opacity: 100%;
+    }
+}

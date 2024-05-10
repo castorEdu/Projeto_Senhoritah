@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - ConfectionaryApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/releases.css" asp-append-version="true">
+    @* <link rel="stylesheet" href="~/ConfectionaryApp.styles.css" asp-append-version="true" /> *@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Pacifico&family=Signika:wght@300..700&family=Varela+Round&display=swap" rel="stylesheet">
+    
+</head>
+<body id="body-pd" class="home-body-pd" >
+    <div class="home-l-navbar home_expander" id="navbar">
+        <nav class="home_nav">
+            <div>
+                <div class="home_nav__brand" style="width: 100%;">
+                    <a asp-controller="Home" asp-action="Index" class="home_nav__logo" style="text-decoration: none;width: 100%;" >
+                        <div style="width: 192px; border-radius: 10px; font-family: 'Pacifico', cursive;">Senhorita.H</div>
+                    </a>
+                </div>
+                <hr/>
+                <div class="home_nav__list">
+                    <a asp-controller="Home" asp-action="Index" class="home_nav__link">
+                        <img src="~/icons/home.svg" alt="Alternate Text" style=" height: 25px; margin-right: .5rem" />
+                        <div class="home_nav__name">Home</div>
+                    </a>
+                    <a asp-controller="" asp-action="" class="home_nav__link" style="text-decoration: none">
+                        <img src="~/icons/work.svg" alt="Alternate Text" style=" height: 25px; margin-right: .5rem" />
+                        <div class="home_nav__name">Gerencial</div>
+                    </a>
+                    <div class="home_nav__link_group">
+                        <a asp-controller="Products" asp-action="ProductIndex" class="home_collapse__sublink" style="text-decoration: none; margin-bottom: .5rem">Produtos</a>
+                        <a asp-controller="Client" asp-action="ClientIndex" class="home_collapse__sublink" style="text-decoration: none; margin-bottom: .5rem">Clientes</a>
+                        <a asp-controller="DataSheet" asp-action="DataSheetIndex" class="home_collapse__sublink" style="text-decoration: none; margin-bottom: .5rem">Ficha Tecnica</a>
+                        <a href="#" class="home_collapse__sublink" style="text-decoration: none">Receitas</a>
+                    </div>
+                    <a asp-controller="Releases" asp-action="ReleaseClients" class="home_nav__link" style="text-decoration: none">
+                        <img src="~/icons/wallet.svg" alt="Alternate Text" style=" height: 25px; margin-right: .5rem" />
+                        <div class="home_nav__name">Financeiro</div>
+                    </a>
+                    <div class="home_nav__link_group">
+                        <a asp-controller="" asp-action="" class="home_collapse__sublink" style="text-decoration: none; margin-bottom: .5rem">Resumo</a>
+                        <a asp-controller="" asp-action="" class="home_collapse__sublink" style="text-decoration: none; margin-bottom: .5rem">Entrada</a>
+                        <a asp-controller="" asp-action="" class="home_collapse__sublink" style="text-decoration: none; margin-bottom: .5rem">Saída</a>
+                    </div>
+                    <a asp-controller="Releases" asp-action="ReleaseClients" class="home_nav__link" style="text-decoration: none">
+                        <img src="~/icons/orders.svg" alt="Alternate Text" style=" height: 25px; margin-right: .5rem" />
+                        <div class="home_nav__name">Pedidos</div>
+                    </a>
+                </div>
+            </div>
+
+            <a href="#" class="home_nav__link" style="text-decoration: none">
+                <ion-icon name="log-out-outline" class="home_nav__icon"></ion-icon>
+                <span class="home_nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+
+    <div style="width: 100%; height: 100vh;">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+    <!-- ===== IONICONS ===== -->
+
+    <script src="~/js/home.js" asp-append-version="true"></script>
+    <!-- ===== MAIN JS ===== -->
+    @* <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

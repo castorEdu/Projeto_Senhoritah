@@ -1,0 +1,120 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = APP
+build_property.RootNamespace = APP
+build_property.ProjectDir = C:\KST\Senhoritah2.0.0\APP\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\KST\Senhoritah2.0.0\APP
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Client/ClientDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XENsaWVudERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Client/ClientIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XENsaWVudEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Client/SearchClient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XFNlYXJjaENsaWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Config/ConfigIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlnXENvbmZpZ0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Consult/ConsultClientIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdFxDb25zdWx0Q2xpZW50SW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Consult/ConsultProductsIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdFxDb25zdWx0UHJvZHVjdHNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/DataSheet/DataSheetCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVNoZWV0XERhdGFTaGVldENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/DataSheet/DataSheetIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVNoZWV0XERhdGFTaGVldEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Products/ProductDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcUHJvZHVjdERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Products/ProductIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcUHJvZHVjdEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Products/SearchProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcU2VhcmNoUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Releases/ReleaseClients.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZUNsaWVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Releases/ReleaseDeleteProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZURlbGV0ZVByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Releases/ReleaseIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZUluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Releases/ReleaseProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZVByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Releases/ReleaseRecipes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZVJlY2lwZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Releases/ReleaseSearchProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZVNlYXJjaFByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-sara90ikyu
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Shared/_LayoutConsult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDb25zdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-dmx6zxdtzt
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Shared/_LayoutHome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-l8gcmeqe8b
+
+[C:/KST/Senhoritah2.0.0/APP/Views/Shared/_LayoutReleases.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRSZWxlYXNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-0lv6j9wguf
