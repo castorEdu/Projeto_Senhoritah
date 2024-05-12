@@ -70,7 +70,7 @@ namespace Senhoritah.API.Repository
             var recipeProducts = await _context.Recipe_products.Where(p => p.RecipeId == idRecipe).ToListAsync();
             return recipeProducts;
         }
-        public async Task<ProductsRecipeModel> FindRecipeProductById(long idProduct, long idRecipe)
+        public async Task<ProductsRecipeModel> FindRecipeProductById(long idRecipe, long idProduct)
         {
             var recipeProducts = await _context.Recipe_products.Where(p => p.RecipeId == idRecipe && p.ProductId == idProduct).FirstOrDefaultAsync();
 

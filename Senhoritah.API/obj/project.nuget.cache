@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g4GweeeFS2nWPM7j7ZW30BmXmhskAHSX2MD/ZezdKVHfJ/rkhwbEF7PDkG4jKjihEYd9s+1n0zzF4KYJw+AbdQ==",
+  "dgSpecHash": "bbt4l+cb9z1b8bqq7WZ1p6T1F30u8qbPCfjVffDfVgeM/IC+4fCqUXax69uzIbFEAQpTX+QzpTUAPzz6hVzV7Q==",
   "success": true,
-  "projectFilePath": "C:\\KST\\Senhoritah2.0.0\\Senhoritah.API\\Senhoritah.API.csproj",
+  "projectFilePath": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\Senhoritah.API\\Senhoritah.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Eduardo Castor\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Eduardo Castor\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

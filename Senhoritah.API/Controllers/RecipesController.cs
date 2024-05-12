@@ -15,14 +15,11 @@ namespace Senhoritah.API.Controllers
         {
             _recipesRepository = recipesRepository;
         }
-        // GET: api/<RecipesController>
         [HttpGet]
         public async Task<IEnumerable<RecipesModel>> Get()
         {
             return await _recipesRepository.FindAll();
         }
-
-        // GET api/<RecipesController>/5
         [HttpGet("{id}")]
         public async Task<RecipesModel> GetById(int id)
         {
@@ -43,13 +40,36 @@ namespace Senhoritah.API.Controllers
         {
             return await _recipesRepository.Update(recipe);
         }
-
-        // DELETE api/<RecipesController>/5
         [HttpDelete("{id}")]
         public async Task<bool> Delete(int id)
         {
             return await _recipesRepository.Delete(id);
         }
 
+        [HttpGet("products/{id}")]
+        public async Task<IEnumerable<ProductsRecipeModel>> GetProducts(long id)
+        {
+            return await _recipesRepository.FindAllProductsByRecipe(id);
+        }
+        [HttpGet("products/{idRecipe}/{idProduct}")]
+        public async Task<ProductsRecipeModel> GetProducts(long idRecipe, long idProduct)
+        {
+            return await _recipesRepository.FindRecipeProductById(idRecipe, idProduct);
+        }
+        [HttpPost("products")]
+        public async Task<ProductsRecipeModel> Create(ProductsRecipeModel prod)
+        {
+            return await _recipesRepository.CreateRecipeProduct(prod);
+        }
+        [HttpPut("products")]
+        public async Task<ProductsRecipeModel> Update(ProductsRecipeModel prod)
+        {
+            return await _recipesRepository.UpdateRecipeProduct(prod);
+        }
+        [HttpDelete("products/{idRecipe}/{idProduct}")]
+        public async Task<bool> Delete(long idRecipe, long idProduct)
+        {
+            return await _recipesRepository.DeleteRecipeProduct(idRecipe, idProduct);
+        }
     }
 }

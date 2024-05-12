@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\KST\\Senhoritah2.0.0\\Senhoritah.API\\Senhoritah.API.csproj": {}
+    "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\Senhoritah.API\\Senhoritah.API.csproj": {}
   },
   "projects": {
-    "C:\\KST\\Senhoritah2.0.0\\Senhoritah.API\\Senhoritah.API.csproj": {
+    "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\Senhoritah.API\\Senhoritah.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\KST\\Senhoritah2.0.0\\Senhoritah.API\\Senhoritah.API.csproj",
+        "projectUniqueName": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\Senhoritah.API\\Senhoritah.API.csproj",
         "projectName": "Senhoritah.API",
-        "projectPath": "C:\\KST\\Senhoritah2.0.0\\Senhoritah.API\\Senhoritah.API.csproj",
+        "projectPath": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\Senhoritah.API\\Senhoritah.API.csproj",
         "packagesPath": "C:\\Users\\Eduardo Castor\\.nuget\\packages\\",
-        "outputPath": "C:\\KST\\Senhoritah2.0.0\\Senhoritah.API\\obj\\",
+        "outputPath": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\Senhoritah.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nf5KVZUu268xAvIrGbeeMuicVMNHqqCLvIM6RZ1oiciyKk9Rfv37CX3cxiwloHfMKeae4OA6cYwnj/6wT0EzsA==",
+  "dgSpecHash": "3g0OTtYt1KhNK1kuZsJcqFXOJiXRCCjSHLfzmSIuXFndc+joQO4zeXh/fsmv0iZz25dB5VreascV+05ygKvyKQ==",
   "success": true,
-  "projectFilePath": "C:\\KST\\Senhoritah2.0.0\\APP\\APP.csproj",
+  "projectFilePath": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\APP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Eduardo Castor\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.29\\microsoft.entityframeworkcore.6.0.29.nupkg.sha512",
     "C:\\Users\\Eduardo Castor\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.29\\microsoft.entityframeworkcore.abstractions.6.0.29.nupkg.sha512",

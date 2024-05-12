@@ -3,17 +3,20 @@
     Layout = "_LayoutHome";
 }
 <h1 style="color: #412E27; padding: 10px 0 10px 0">Criar Ficha Tecnica</h1>
-<div class="main-content" style="padding: 20px;">
-    <form asp-action="Create" style="width: 100%;">
-        <div style=" height: 100%;">
+<div class="main-content" style="padding: 20px; flex-direction: column">
+    <form asp-action="DataSheetName"></form>
+    @* <form asp-action="Create" style="width: 100%">
             <div class="d-flex" style="margin-bottom: .5rem; height: 100px; border-bottom: 1px solid #ACACAC">
                 <input asp-for="Recipe.Name" placeholder="Nome Ficha Tecnica" class="input-style" style="height: 45px;width: 350px; margin-right: 1rem" autocomplete="off" />
                 <textarea asp-for="Recipe.Price" placeholder="Descrição" style=" background-color: #514541; outline: none; border: none; border-radius: 10px; padding: 10px; height: 45px; min-height: 45px;max-height: 92px; width: 600px; color: #FFFFFF;" autocomplete="off"></textarea>
             </div>
+            <input class="btn btn-success" type="submit" name="name" value="Salvar" />
+    </form>
+        <div style=" height: 100%;">
             <div class="d-flex">
                 <div style="padding: 15px;height: 650px;width: 40%">
                     <h5 style="color: #FFF">Adicionar Produtos</h5>
-                    <form style="margin-bottom: 1rem">
+                    <form asp-action="Search" style="margin-bottom: 1rem">
                         <input class="input-style" type="type" name="name" value="" placeholder="Nome Produto" style="width: 500px" />
                         <input class="btn btn-primary" type="submit" name="name" value="Buscar" />
                     </form>
@@ -53,8 +56,8 @@
             </div>
             <div class="d-flex align-items-center justify-content-between p-3" style="height: 70px">
                 <a asp-action="Cancel" class="btn btn-danger">Cancelar</a>
-                <input class="btn btn-success" type="submit" name="name" value="Salvar" />
+                
             </div>
         </div>
-    </form>
+ *@
 </div>

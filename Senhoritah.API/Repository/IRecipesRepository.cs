@@ -11,7 +11,7 @@ namespace Senhoritah.API.Repository
         Task<RecipesModel> Update(RecipesModel recipe);
         Task<bool> Delete(long idRecipe);
         Task<IEnumerable<ProductsRecipeModel>> FindAllProductsByRecipe(long idRecipe);
-        Task<ProductsRecipeModel> FindRecipeProductById(long idProduct, long idRecipe);
+        Task<ProductsRecipeModel> FindRecipeProductById(long idRecipe, long idProduct);
         Task<ProductsRecipeModel> CreateRecipeProduct(ProductsRecipeModel productRecipe);
         Task<ProductsRecipeModel> UpdateRecipeProduct(ProductsRecipeModel productRecipe);
         Task<bool> DeleteRecipeProduct(long idRecipe, long idProduct);

@@ -1,8 +1,6 @@
 ﻿using APP.Models;
 using APP.Services.IService;
 using APP.Utils;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace APP.Services
 {

@@ -18,6 +18,7 @@ namespace APP
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            builder.Services.AddSingleton<Resorces>();
 
             builder.Services.AddDistributedMemoryCache();
             builder.Services.AddSession(options =>
