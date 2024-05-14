@@ -4,48 +4,23 @@
 }
 <h1 style="color: #412E27; padding: 10px 0 10px 0">Produtos</h1>
 <div class="d-flex" style="width: 100%">
-    <div class="main-content">
-        @if (Model.IsSave)
-        {
-            <div class="releases-message-success">
-                <span style="font-weight: bolder;">Registro salvo com sucesso!</span>
-            </div>
-        }
-        <div class="d-flex flex-column align-items-center" style="width: 100%">
-            <h4 style="color: #FFFFFF">Adiconar Produtos</h4>
-            <form class="form-releases">
-                <div class="form-group" style="margin-bottom: .5rem;">
-                    <input placeholder="Nome Produto" class="input-style" style="width: 250px" autocomplete="off" name="ProductModel.Name" disabled />
-                </div>
-                <div class="form-group" style="margin-bottom: .5rem;">
-                    <input placeholder="Categoria" class="input-style" style="width: 250px" autocomplete="off" disabled />
-                </div>
-                <div class="form-group" style="margin-bottom: .5rem;">
-                    <input placeholder="Marca" class="input-style" style="width: 250px" autocomplete="off" disabled />
-                </div>
-                <div style="width: 100%; display: grid; place-content: center">
-                    <input class="btn btn-success" type="submit" value="Salvar" disabled/>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div style="width: 100%;padding: 20px ;margin-left: 2rem; border-radius: 10px;background-color: #F5F5F5;-webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff; ">
+    <div style="height:89vh ;width: 100%;padding: 20px ; border-radius: 10px;background-color: #F5F5F5;-webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff; ">
         <h3>Editar Produto</h3>
         <form asp-action="EditProduct">
             <div asp-validation-summary="ModelOnly"></div>
             <div class="d-flex flex-column" style="width: 400px; margin-bottom: .5rem">
                 <label asp-for="Name" ></label>
-                <input asp-for="Name" />
+                <input asp-for="Name" class="input-style" style="background-color: #eaeaea; color: #000000;" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="d-flex flex-column" style="width: 400px;margin-bottom: .5rem">
                 <label asp-for="ProductCategory"></label>
-                <input asp-for="ProductCategory" />
+                <input asp-for="ProductCategory" class="input-style" style="background-color: #eaeaea; color: #000000;" />
                 <span asp-validation-for="ProductCategory" class="text-danger"></span>
             </div>
             <div class="d-flex flex-column" style="width: 400px;margin-bottom: 1rem">
                 <label asp-for="Brand"></label>
-                <input asp-for="Brand" />
+                <input asp-for="Brand" class="input-style" style="background-color: #eaeaea; color: #000000;" />
                 <span asp-validation-for="Brand" class="text-danger"></span>
             </div>
             <div class="d-flex justify-content-between align-items-center" style="width: 400px;">
