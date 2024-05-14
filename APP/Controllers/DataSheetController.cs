@@ -45,6 +45,7 @@ namespace APP.Controllers
                 Products = await _productService.FindAll(),
                 AddedProducts = _resorces.productsAdded
             };
+            ViewData["Name"] = _resorces.nameRecipe;
             return View(view);
         }
         public async Task<ActionResult> Search(string name)
@@ -102,8 +103,9 @@ namespace APP.Controllers
             _resorces.ClearAll();
             return RedirectToAction(nameof(DataSheetIndex));
         }
-        public ActionResult PreSave()
+        public ActionResult PreSave(string Description)
         {
+            if (!string.IsNullOrEmpty(Description)) _resorces.descriptionRecipe = Description;
             var details = new PreSaveDetailsViewModel
             {
                 Name = _resorces.nameRecipe,
@@ -116,7 +118,7 @@ namespace APP.Controllers
             var recipe = new RecipesModel
             {
                 Name = _resorces.nameRecipe,
-                Description = "",
+                Description = _resorces.descriptionRecipe,
                 Price = 10
             };
             var newRecipe = await _recipesService.Create(recipe);
@@ -133,6 +135,22 @@ namespace APP.Controllers
         {
             var status = await _recipesService.Delete(id);
             return RedirectToAction(nameof(DataSheetIndex));
+        }
+        public async Task<ActionResult> RecipeDetails(long id)
+        {
+            var recipe = await _recipesService.FindById(id);
+            var listProduct = await _recipesService.FindAllProductsByRecipe(id);
+            foreach (var item in listProduct)
+            {
+                item.Product = await _productService.FindProductById(item.ProductId);
+            }
+            var viewModel = new RecipeDetailsViewModel
+            {
+                Recipes = recipe,
+                Products = listProduct
+            };
+
+            return View(viewModel);
         }
     }
 }

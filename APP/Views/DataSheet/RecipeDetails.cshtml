@@ -1,0 +1,39 @@
+﻿@model RecipeDetailsViewModel
+@{
+    Layout = "_LayoutHome";
+}
+<h1 style="color: #412E27; padding: 10px 0 10px 0">Detalhes Ficha Tecnica</h1>
+<form class="d-flex" style="width: 100%; height: 89vh;">
+    <div class="d-flex flex-column" style="width: 35%; margin-right: 2rem">
+        <div style="width: 100%; height: 35%; padding: 20px;" class="card-content">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="d-flex flex-column" style="margin-bottom: 1rem">
+                <label style="margin-bottom: .5rem">Nome</label>
+                <input asp-for="Recipes.Name" class="input-style"/>
+                <span asp-validation-for="Recipes.Name"></span>
+            </div>
+            <div class="d-flex flex-column">
+                <label style="margin-bottom: .5rem">Categoria</label>
+                <textarea asp-for="Recipes.Description" class="input-style" style="height:120px;max-height:120px;min-height: 120px;"></textarea>
+                <span asp-validation-for="Recipes.Description"></span>
+            </div>
+        </div>
+        <div style="width: 100%; display: flex; justify-content: center; margin-top: 2rem">
+            <input class="btn btn-success" type="submit" name="name" value="Salvar" style="width: 80%" />
+        </div>
+    </div>
+    <div style="width: 65%; height: 100%; padding: 20px" class="card-content">
+        <div style="width: 100%; height: 100%;padding: 10px">
+            @foreach (var item in Model.Products)
+            {
+                <div class="d-flex justify-content-around input-style" style="width: 100%; height: 6vh; margin-bottom: 1rem">
+                    <div>@item.Product.Name</div>
+                    <div>@item.Product.ProductCategory</div>
+                    <div>@item.Product.Brand</div>
+                    <div>@item.Unit</div>
+                    <div>@item.Amount</div>
+                </div> 
+            }
+        </div>
+    </div>
+</form>

@@ -26,12 +26,18 @@
     
 }
 .input-style {
-    background-color: #514541;
     border: none;
     outline: none;
     padding: 10px;
-    color: #FFFFFF;
     border-radius: 10px;
+    background-color: #eaeaea;
+    color: #000000;
+}
+.card-content {
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    -webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;
+    box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;
 }
 .input-style:focus{
     border: none;

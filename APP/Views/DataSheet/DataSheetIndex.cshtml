@@ -21,7 +21,7 @@
                         <td>@item.Name</td>
                         <td>@item.Description</td>
                         <td>
-                            <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@item.Id" style="cursor: pointer;"><img src="~/icons/edit_icon.svg" alt="edit" /></a>
+                            <a asp-controller="DataSheet" asp-action="RecipeDetails" asp-route-id="@item.Id" style="cursor: pointer;"><img src="~/icons/edit_icon.svg" alt="edit" /></a>
                             <a id="showModal" onclick="Confirm(@item.Id)" style="cursor: pointer;"><img src="~/icons/delete_icon.svg" alt="delete" /><a>
                         </td>
                     </tr>                    

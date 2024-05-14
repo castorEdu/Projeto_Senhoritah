@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lFd+LNe9z9uUyP7QUD+sl4S4RdU+IsU0R9iTJ+bq4/4=",
+  "Hash": "cS4DFKPHKkgf5MPgrpBhuVfwnBeidbOXlEMNSNVuPpo=",
   "Source": "APP",
   "BasePath": "_content/APP",
   "Mode": "Default",
@@ -338,6 +338,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\js\\ValidateInputNumber.js",
+      "SourceId": "APP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
+      "BasePath": "_content/APP",
+      "RelativePath": "js/ValidateInputNumber.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ValidateInputNumber.js"
     },
     {
       "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
