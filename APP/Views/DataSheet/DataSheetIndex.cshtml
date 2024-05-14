@@ -3,14 +3,15 @@
     Layout = "_LayoutHome";
 }
 <h1 style="color: #412E27; padding: 10px 0 10px 0">Ficha Tecnica</h1>
-<div class="main-content" style="padding: 20px">
-    <div style="background-color: #FFF ;width: 100%; border-radius: 10px;">
+<div style="width: 100%; height: 89vh;padding: 20px; border-radius: 10px;background-color: #F5F5F5;-webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px#ffffff;box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;">
+
         <div style="padding: 10px; width: 100%;"><a asp-action="DataSheetCreate" class="btn btn-primary">Criar Ficha Técnica</a></div>
         <table class="table">
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>Descrição</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -19,9 +20,76 @@
                     <tr>
                         <td>@item.Name</td>
                         <td>@item.Description</td>
+                        <td>
+                            <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@item.Id" style="cursor: pointer;"><img src="~/icons/edit_icon.svg" alt="edit" /></a>
+                            <a id="showModal" onclick="Confirm(@item.Id)" style="cursor: pointer;"><img src="~/icons/delete_icon.svg" alt="delete" /><a>
+                        </td>
                     </tr>                    
                 }
             </tbody>
         </table>
+</div>
+<!-- DELETE -->
+<div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="DeleteRecipes">
+                <input name="id" type="hidden" id="idDelete" />
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Ação!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Deseja realmente deletar esse Ficha Tecnica?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="btnDelete" type="submit" class="btn btn-danger">Deletar</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+
+        $(document).ready(function () {
+            $("#btnDelete").click(function () {
+                var idD = $("#idDelete").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/Recipes/DeleteRecipes",
+                    data: { id: idD },
+                    success: function (result) {
+                        if (result) {
+                            $("#idDelete").val(null);
+                            window.location.href = "/DataSheet/DataSheetIndex";
+                        } else {
+                            alert("Ops... Alguma coisa deu errado")
+                        }
+                    }
+                })
+            })
+        })
+        var Confirm = function (id) {
+            $("#idDelete").val(id);
+            $("#DeleteModal").modal('show');
+        }
+        // var EditForm = function (id) {
+        //     $.ajax({
+        //         type: "POST",
+        //             url: "/Products/GetProductForEdit",
+        //                 data: { id: id },
+        //         success: function(result) {
+        //             $("#EditModal").modal('show');
+        //             $("#ProductName").val(result.ProductModel.Name);
+        //             $(".updateid").val(result.ProductModel.Id);
+        //             console.log(result);
+        //         }
+        //     })
+
+    </script>
+}

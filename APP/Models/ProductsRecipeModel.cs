@@ -7,10 +7,11 @@ namespace APP.Models
     {
         public long Id { get; set; }
         public int ProductId { get; set; }
-        public virtual ProductModel? Product { get; set; }
+        public string ProductName { get; set; } = string.Empty;
         public long RecipeId { get; set; }
-        public virtual RecipesModel? Recipes { get; set; }
         public decimal? Amount { get; set; }
         public string? Unit { get; set; }
+        public decimal? Price { get; set; } = 0;
+        public int Index { get; set; } = 0;
     }
 }

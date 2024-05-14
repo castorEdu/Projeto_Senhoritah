@@ -3,40 +3,41 @@
     Layout = "_LayoutHome";
 }
 <h1 style="color: #FFFFFF; padding: 10px 0 10px 0">Produtos</h1>
-<div class="main-content">
-    @if (Model.ProductModel.IsSave)
-    {
-        <div class="releases-message-success">
-            <span style="font-weight: bolder;">Registro salvo com sucesso!</span>
+<div class="d-flex" style="width: 100%">
+    <div class="main-content">
+        @if (Model.ProductModel.IsSave)
+        {
+            <div class="releases-message-success">
+                <span style="font-weight: bolder;">Registro salvo com sucesso!</span>
+            </div>
+        }
+        <div class="d-flex flex-column align-items-center" style="width: 100%">
+            <h4 style="color: #FFFFFF">Adiconar Produtos</h4>
+            <form asp-action="Create" class="form-releases">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="d-flex flex-column" style="margin-bottom: .5rem;">
+                    <input name="Name" value="" placeholder="Nome Produto" class="input-style" style="width: 250px" />
+                    <span asp-validation-for="ProductModel.Name"></span>
+                </div>
+                <div class="d-flex flex-column" style="margin-bottom: .5rem;">
+                    <input name="PhoneNumber" value="" placeholder="Categoria" class="input-style" style="width: 250px" />
+                    <span asp-validation-for="ProductModel.ProductCategory"></span>
+                </div>
+                <div class="d-flex flex-column" style="margin-bottom: .5rem;">
+                    <input name="PhoneNumber" value="" placeholder="Marca" class="input-style" style="width: 250px" />
+                    <span asp-validation-for="ProductModel.Brand"></span>
+                </div>
+                <div style="width: 100%; display: grid; place-content: center">
+                    <input class="btn btn-success" type="submit" value="Salvar" />
+                </div>
+            </form>
         </div>
-    }
-    <div class="content-sidebar">
-        <h4 style="color: #FFFFFF">Adiconar Produtos</h4>
-        <form asp-action="Create" class="form-releases">
-            <div asp-validation-summary="ModelOnly"></div>
-            <div class="d-flex flex-column" style="margin-bottom: .5rem;">
-                <input name="Name" value="" placeholder="Nome Produto" class="input-style" style="width: 250px" />
-                <span asp-validation-for="ProductModel.Name"></span>
-            </div>
-            <div class="d-flex flex-column" style="margin-bottom: .5rem;">
-                <input name="PhoneNumber" value="" placeholder="Categoria" class="input-style" style="width: 250px" />
-                <span asp-validation-for="ProductModel.ProductCategory"></span>
-            </div>
-            <div class="d-flex flex-column" style="margin-bottom: .5rem;">
-                <input name="PhoneNumber" value="" placeholder="Marca" class="input-style" style="width: 250px" />
-                <span asp-validation-for="ProductModel.Brand"></span>
-            </div>
-            <div style="width: 100%; display: grid; place-content: center">
-                <input class="btn btn-success" type="submit" value="Salvar" />
-            </div>
-        </form>
     </div>
-    <div class="content-page">
+    <div style="width: 100%;padding: 20px ;margin-left: 2rem; border-radius: 10px;background-color: #F5F5F5;-webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff; ">
         <form asp-action="SearchProduct">
-            <input name="Name" value="" class="input-style" style="background-color: #aeaeae; width: 500px" placeholder="Pesquisar" autocomplete="off" />
+            <input name="Name" value="" class="input-style" style="background-color: #aeaeae; width: 500px" placeholder="Pesquisar"autocomplete="off" />
             <input type="submit" value="Buscar" style="background-color: #0C5DF4;color: #FFFFFF; padding: 9px; border-radius: 5px; border: none" />
         </form>
-        <hr />
         <hr />
         <table class="table">
             <thead>
@@ -55,8 +56,8 @@
                         <td>@Html.DisplayFor(p => product.ProductCategory)</td>
                         <td>@Html.DisplayFor(p => product.Brand)</td>
                         <td>
-                            <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id" style="cursor: pointer;"><img src="~/icons/edit_black.svg" alt="edit" /></a>
-                            <a id="showModal" onclick="Confirm(@product.Id)" style="cursor: pointer;"><img src="~/icons/delete.svg" alt="delete" /></a>
+                            <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id" style="cursor: pointer;"><img src="~/icons/edit_icon.svg" alt="edit" /></a>
+                            <a id="showModal" onclick="Confirm(@product.Id)" style="cursor: pointer;"><img src="~/icons/delete_icon.svg" alt="delete" /><a>
                         </td>
                     </tr>
                 }

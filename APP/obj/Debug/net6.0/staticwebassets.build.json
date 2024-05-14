@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x4Hb64z4gTcnMQiZ8zqOhJ/6SSwsNGnVpMIor4BfYQ0=",
+  "Hash": "lFd+LNe9z9uUyP7QUD+sl4S4RdU+IsU0R9iTJ+bq4/4=",
   "Source": "APP",
   "BasePath": "_content/APP",
   "Mode": "Default",
@@ -136,12 +136,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\delete.svg",
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\delete_icon.svg",
       "SourceId": "APP",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
       "BasePath": "_content/APP",
-      "RelativePath": "icons/delete.svg",
+      "RelativePath": "icons/delete_icon.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,24 +150,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\icons\\delete.svg"
-    },
-    {
-      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\edit.svg",
-      "SourceId": "APP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
-      "BasePath": "_content/APP",
-      "RelativePath": "icons/edit.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\icons\\edit.svg"
+      "OriginalItemSpec": "wwwroot\\icons\\delete_icon.svg"
     },
     {
       "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\edit_black.svg",
@@ -187,12 +170,12 @@
       "OriginalItemSpec": "wwwroot\\icons\\edit_black.svg"
     },
     {
-      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\home.svg",
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\edit_icon.svg",
       "SourceId": "APP",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
       "BasePath": "_content/APP",
-      "RelativePath": "icons/home.svg",
+      "RelativePath": "icons/edit_icon.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -201,15 +184,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\icons\\home.svg"
+      "OriginalItemSpec": "wwwroot\\icons\\edit_icon.svg"
     },
     {
-      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\orders.svg",
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\home_20dp.svg",
       "SourceId": "APP",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
       "BasePath": "_content/APP",
-      "RelativePath": "icons/orders.svg",
+      "RelativePath": "icons/home_20dp.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -218,15 +201,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\icons\\orders.svg"
+      "OriginalItemSpec": "wwwroot\\icons\\home_20dp.svg"
     },
     {
-      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\wallet.svg",
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\home_icon.svg",
       "SourceId": "APP",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
       "BasePath": "_content/APP",
-      "RelativePath": "icons/wallet.svg",
+      "RelativePath": "icons/home_icon.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -235,15 +218,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\icons\\wallet.svg"
+      "OriginalItemSpec": "wwwroot\\icons\\home_icon.svg"
     },
     {
-      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\work.svg",
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\order_icon.svg",
       "SourceId": "APP",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
       "BasePath": "_content/APP",
-      "RelativePath": "icons/work.svg",
+      "RelativePath": "icons/order_icon.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -252,7 +235,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\icons\\work.svg"
+      "OriginalItemSpec": "wwwroot\\icons\\order_icon.svg"
+    },
+    {
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\wallet_icon.svg",
+      "SourceId": "APP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
+      "BasePath": "_content/APP",
+      "RelativePath": "icons/wallet_icon.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\wallet_icon.svg"
+    },
+    {
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\work_icon.svg",
+      "SourceId": "APP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
+      "BasePath": "_content/APP",
+      "RelativePath": "icons/work_icon.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\work_icon.svg"
     },
     {
       "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\images\\srtah_logo.png",

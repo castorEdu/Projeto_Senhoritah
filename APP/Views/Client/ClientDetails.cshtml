@@ -2,29 +2,31 @@
 @{
     Layout = "_LayoutHome";
 }
-<h1 style="color: #FFFFFF; padding: 10px 0 10px 0">Cliente</h1>
-<div class="main-content">
-    @if (Model.IsSave)
-    {
-        <div class="releases-message-success">
-            <span style="font-weight: bolder;">Registro salvo com sucesso!</span>
+<h1 style="color: #412E27; padding: 10px 0 10px 0">Cliente</h1>
+<div class="d-flex" style="width: 100%">
+    <div class="main-content">
+        @if (Model.IsSave)
+        {
+            <div class="releases-message-success">
+                <span style="font-weight: bolder;">Registro salvo com sucesso!</span>
+            </div>
+        }
+        <div class="d-flex flex-column align-items-center" style="width: 100%">
+            <h4 style="color: #FFFFFF">Adiconar Cliente</h4>
+            <form class="form-releases">
+                <div class="form-group" style="margin-bottom: .5rem;">
+                    <input placeholder="Nome Cliente" class="input-style" style="width: 250px" autocomplete="off" disabled />
+                </div>
+                <div class="form-group" style="margin-bottom: .5rem;">
+                    <input placeholder="Telefone" class="input-style" style="width: 250px" autocomplete="off" disabled />
+                </div>
+                <div style="width: 100%; display: grid; place-content: center">
+                    <input class="btn btn-success" type="submit" value="Salvar" disabled />
+                </div>
+            </form>
         </div>
-    }
-    <div class="content-sidebar">
-        <h4 style="color: #FFFFFF">Adiconar Cliente</h4>
-        <form class="form-releases">
-            <div class="form-group" style="margin-bottom: .5rem;">
-                <input placeholder="Nome Cliente" class="input-style" style="width: 250px" autocomplete="off" disabled />
-            </div>
-            <div class="form-group" style="margin-bottom: .5rem;">
-                <input placeholder="Telefone" class="input-style" style="width: 250px" autocomplete="off" disabled />
-            </div>
-            <div style="width: 100%; display: grid; place-content: center">
-                <input class="btn btn-success" type="submit" value="Salvar" disabled />
-            </div>
-        </form>
     </div>
-    <div class="content-page">
+    <div style="width: 100%;padding: 20px ;margin-left: 2rem; border-radius: 10px;background-color: #F5F5F5;-webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff; ">
         <h3>Editar Cliente</h3>
         <form asp-action="EditClient">
             <div asp-validation-summary="ModelOnly"></div>

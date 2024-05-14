@@ -9,10 +9,10 @@ namespace Senhoritah.API.Model
         [Required]
         [StringLength(100)]
         public string Name { get; set; } = string.Empty;
-        [Required]
+
         [StringLength(300)]
         public string Description { get; set; } = string.Empty;
-        [Column("decimal(18,2)")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; } = 0;
     }
 }

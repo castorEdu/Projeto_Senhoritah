@@ -18,7 +18,7 @@ body {
 }
 
 .page {
-    height: 80vh;
+    height: 50vh;
 }
 
 .sidebar {
@@ -100,7 +100,7 @@ body {
 }
 .consult-content{
     width: 100%;
-    height: 92vh;
+    height: 50vh;
     background-color: #FFFFFF;
     border-radius: 20px 0px 0px 0px;
 }

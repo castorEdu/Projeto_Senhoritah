@@ -3,90 +3,91 @@
     Layout = "_LayoutHome";
 }
 <h1 style="color: #412E27; padding: 10px 0 10px 0">Produtos</h1>
-<div class="main-content">
-    @if (Model.ProductModel.IsSave)
-    {
-        <div class="releases-message-success">
-            <span style="font-weight: bolder;">Registro salvo com sucesso!</span>
-        </div>
-    }
-    <div class="content-sidebar">
-        <h4 style="color: #FFFFFF">Adiconar Produtos</h4>
-        <form asp-controller="Products" asp-action="Create" class="form-releases">
-            <div asp-validation-summary="ModelOnly"></div>
-            <div class="form-group" style="margin-bottom: .5rem;">
-                <input asp-for="ProductModel.Name" placeholder="Nome Produto" class="input-style" style="width: 250px" autocomplete="off" name="ProductModel.Name" />
-                <span asp-validation-for="ProductModel.Name" class="text-danger"></span>
+<div class="d-flex" style="width: 100%">
+    <div class="main-content">
+        @if (Model.ProductModel.IsSave)
+        {
+            <div class="releases-message-success">
+                <span style="font-weight: bolder;">Registro salvo com sucesso!</span>
             </div>
-            <div class="form-group" style="margin-bottom: .5rem;">
-                <input asp-for="ProductModel.ProductCategory" placeholder="Categoria" class="input-style" style="width: 250px" autocomplete="off" />
-                <span asp-validation-for="ProductModel.ProductCategory" class="text-danger"></span>
-            </div>
-            <div class="form-group" style="margin-bottom: .5rem;">
-                <input asp-for="ProductModel.Brand" placeholder="Marca" class="input-style" style="width: 250px" autocomplete="off" />
-                <span asp-validation-for="ProductModel.Brand" class="text-danger"></span>
-            </div>
-            <div style="width: 100%; display: grid; place-content: center">
-                <input class="btn btn-success" type="submit" value="Salvar" />
-            </div>
-        </form>
-    </div>
-    <div class="content-page">
-        <form asp-action="SearchProduct">
-            <input name="Name" value="" class="input-style" style="background-color: #aeaeae; width: 500px" placeholder="Pesquisar" autocomplete="off" />
-            <input type="submit" value="Buscar" style="background-color: #0C5DF4;color: #FFFFFF; padding: 9px; border-radius: 5px; border: none" />
-        </form>
-        <hr />
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Categoria</th>
-                    <th>Marca</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var product in Model.Products)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(p => product.Name)</td>
-                        <td>@Html.DisplayFor(p => product.ProductCategory)</td>
-                        <td>@Html.DisplayFor(p => product.Brand)</td>
-                        <td>
-                            <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id" style="cursor: pointer;"><img src="~/icons/edit_black.svg" alt="edit" /></a>
-                            <a id="showModal" onclick="Confirm(@product.Id)" style="cursor: pointer;"><img src="~/icons/delete.svg" alt="delete" /></a>
-                        </td>
-                    </tr>                    
-                }
-            </tbody>
-        </table>
-
-        <input type="hidden" id="idDelete" />
-        <!-- DELETE -->
-        <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form asp-action="DeleteProduct">
-                        <input type="hidden" id="idDelete" />
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Ação!</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Deseja realmente deletar esse produto?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button id="btnDelete" type="button" class="btn btn-danger">Deletar</button>
-                        </div>
-                    </form>
+        }
+        <h5 style="color: #FFFFFF; margin-left: 1rem">Adiconar Produtos</h5>
+        <div class="d-flex flex-column align-items-center" style="width: 100%">
+            <form asp-controller="Products" asp-action="Create" class="form-releases">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-group" style="margin-bottom: .5rem;">
+                    <input asp-for="ProductModel.Name" placeholder="Nome Produto" class="input-style" style="width: 250px" autocomplete="off" name="ProductModel.Name" />
+                    <span asp-validation-for="ProductModel.Name" class="text-danger"></span>
                 </div>
-            </div>
+                <div class="form-group" style="margin-bottom: .5rem;">
+                    <input asp-for="ProductModel.ProductCategory" placeholder="Categoria" class="input-style" style="width: 250px" autocomplete="off" />
+                    <span asp-validation-for="ProductModel.ProductCategory" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-bottom: .5rem;">
+                    <input asp-for="ProductModel.Brand" placeholder="Marca" class="input-style" style="width: 250px" autocomplete="off" />
+                    <span asp-validation-for="ProductModel.Brand" class="text-danger"></span>
+                </div>
+                <div style="width: 100%; display: grid; place-content: center">
+                    <input class="btn btn-success" type="submit" value="Salvar" />
+                </div>
+            </form>
         </div>
+    </div>
+    <div style="width: 100%;padding: 20px ;margin-left: 2rem; border-radius: 10px;background-color: #F5F5F5;-webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff; ">
+         <form asp-action="SearchProduct">
+             <input name="Name" value="" class="input-style" style="background-color: #aeaeae; width: 500px" placeholder="Pesquisar"autocomplete="off" />
+             <input type="submit" value="Buscar" style="background-color: #0C5DF4;color: #FFFFFF; padding: 9px; border-radius: 5px; border: none" />
+         </form>
+         <hr />
+         <table class="table">
+             <thead>
+                 <tr>
+                     <th>Nome</th>
+                     <th>Categoria</th>
+                     <th>Marca</th>
+                     <th></th>
+                 </tr>
+             </thead>
+             <tbody>
+                 @foreach (var product in Model.Products)
+                 {
+                     <tr>
+                         <td>@Html.DisplayFor(p => product.Name)</td>
+                         <td>@Html.DisplayFor(p => product.ProductCategory)</td>
+                         <td>@Html.DisplayFor(p => product.Brand)</td>
+                         <td>
+                            <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id" style="cursor: pointer;"><img src="~/icons/edit_icon.svg" alt="edit" /></a>
+                             <a id="showModal" onclick="Confirm(@product.Id)" style="cursor: pointer;"><img src="~/icons/delete_icon.svg" alt="delete" /><a>
+                         </td>
+                     </tr>
+                 }
+             </tbody>
+         </table>
     </div>
 </div>
 
+<input type="hidden" id="idDelete" />
+<!-- DELETE -->
+<div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="DeleteProduct">
+                <input type="hidden" id="idDelete" />
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Ação!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Deseja realmente deletar esse produto?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="btnDelete" type="button" class="btn btn-danger">Deletar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

@@ -72,13 +72,13 @@ namespace APP.Services
 
         public async Task<ProductsRecipeModel> CreateRecipeProduct(ProductsRecipeModel productRecipe)
         {
-            var response = await _client.PostAsJson(BasePath, productRecipe);
+            var response = await _client.PostAsJson(BasePathProducts, productRecipe);
             return await response.ReadContentAs<ProductsRecipeModel>();
         }
 
         public async Task<ProductsRecipeModel> UpdateRecipeProduct(ProductsRecipeModel productRecipe)
         {
-            var response = await _client.PutAsJson(BasePath, productRecipe);
+            var response = await _client.PutAsJson(BasePathProducts, productRecipe);
             return await response.ReadContentAs<ProductsRecipeModel>();
         }
 

@@ -1,16 +1,19 @@
 ﻿.main-content {
     display: flex;
-    height: 92vh;
+    height: 89vh;
     background-color: #412E27 /*#12192C*/;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px;
+    width: 20vw;
+    flex-direction: column;
+    padding: 10px;
 }
 .content-sidebar {
-    height: 92vh;
+    height: 50vh;
     width: 400px;
     padding: 20px;
 }
 .content-sidebar-recipes {
-    height: 92vh;
+    height: 50vh;
     width: 1100px;
     padding: 20px;
 }

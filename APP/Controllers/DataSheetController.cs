@@ -2,9 +2,7 @@
 using APP.Models.ViewModel;
 using APP.Services.IService;
 using APP.Utils;
-using AspNetCore;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace APP.Controllers
 {
@@ -26,12 +24,11 @@ namespace APP.Controllers
             var response = await _recipesService.FindAll();
             return View(response);
         }
-        public async Task<IActionResult> DataSheetCreate(DataSheetViewModel viewModel)
+        public async Task<IActionResult> DataSheetCreate()
         {
             var view = new DataSheetViewModel
             {
-                Products = await _productService.FindAll(),
-                AddedProducts = GetAddedProducts()
+                Products = await _productService.FindAll()
             };
             return View(view);
         }
@@ -46,7 +43,7 @@ namespace APP.Controllers
             var view = new DataSheetViewModel
             {
                 Products = await _productService.FindAll(),
-                AddedProducts = GetAddedProducts()
+                AddedProducts = _resorces.productsAdded
             };
             return View(view);
         }
@@ -63,37 +60,78 @@ namespace APP.Controllers
         }
         public async Task<ActionResult> AddProduct(long id, string Unidade, decimal Quantidade)
         {
-            if(Unidade == null || Quantidade == 0) return RedirectToAction(nameof(DataSheetCreate));
+            if(Unidade == null || Quantidade == 0) return RedirectToAction(nameof(DataSheetProductSession));
+            var prod = new ProductsRecipeModel();
             var product = await _productService.FindProductById(id);
-            if (product == null) return NotFound();
-            string response = JsonConvert.SerializeObject(product);
-            TempData[product.Id.ToString()] = response.ToString();
-            return RedirectToAction(nameof(DataSheetCreate));
+            prod.ProductId = product.Id;
+            prod.ProductName = product.Name;
+            prod.Unit = Unidade;
+            prod.Amount = Quantidade;
+            prod.Index = _resorces.SetIndex();
+            _resorces.AddProductToList(prod);
+            return RedirectToAction(nameof(DataSheetProductSession));
         }
-        public List<ProductModel> GetAddedProducts()
+        public ActionResult RemoveAddedProducts(int Index)
         {
-            var ProductsAdded = new List<ProductModel>();
-            var list = TempData.ToList();
-            foreach (var item in list)
-            {
-                var value = item.Value.ToString();
-                var prod = JsonConvert.DeserializeObject<ProductModel>(value);
-                ProductsAdded.Add(prod);
-            }
-            return ProductsAdded;
+            _resorces.RemoveProductFromList(Index);
+            return RedirectToAction(nameof(DataSheetProductSession));
         }
-        public ActionResult ChangeName()
-        {
-            _resorces.name = "Eduardo";
-            return RedirectToAction(nameof(DataSheetCreate));
-        }
-        public ActionResult GetName() 
-        {
-            var nome = _resorces.name;
-            return RedirectToAction(nameof(DataSheetCreate));
-        } 
+        //public async Task<ActionResult> AddProduct(long id, string Unidade, decimal Quantidade)
+        //{
+        //    if(Unidade == null || Quantidade == 0) return RedirectToAction(nameof(DataSheetCreate));
+        //    var product = await _productService.FindProductById(id);
+        //    if (product == null) return NotFound();
+        //    string response = JsonConvert.SerializeObject(product);
+        //    TempData[product.Id.ToString()] = response.ToString();
+        //    return RedirectToAction(nameof(DataSheetCreate));
+        //}
+        //public List<ProductModel> GetAddedProducts()
+        //{
+        //    var ProductsAdded = new List<ProductModel>();
+        //    var list = TempData.ToList();
+        //    foreach (var item in list)
+        //    {
+        //        var value = item.Value.ToString();
+        //        var prod = JsonConvert.DeserializeObject<ProductModel>(value);
+        //        ProductsAdded.Add(prod);
+        //    }
+        //    return ProductsAdded;
+        //}
         public IActionResult Cancel()
         {
+            _resorces.ClearAll();
+            return RedirectToAction(nameof(DataSheetIndex));
+        }
+        public ActionResult PreSave()
+        {
+            var details = new PreSaveDetailsViewModel
+            {
+                Name = _resorces.nameRecipe,
+                products = _resorces.productsAdded
+            };
+            return View(details);
+        }
+        public async Task<ActionResult> Save()
+        {
+            var recipe = new RecipesModel
+            {
+                Name = _resorces.nameRecipe,
+                Description = "",
+                Price = 10
+            };
+            var newRecipe = await _recipesService.Create(recipe);
+            foreach (var item in _resorces.productsAdded)
+            {
+                item.RecipeId = newRecipe.Id;
+                item.Price = 10;
+                await _recipesService.CreateRecipeProduct(item);
+            }
+            return RedirectToAction(nameof(DataSheetIndex));
+        }
+        [HttpPost]
+        public async Task<ActionResult> DeleteRecipes(long id)
+        {
+            var status = await _recipesService.Delete(id);
             return RedirectToAction(nameof(DataSheetIndex));
         }
     }
