@@ -1,11 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Senhoritah.API.Model.Base;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Senhoritah.API.Model
 {
-    public class RecipesModel
+    public class RecipesModel:BaseEntity
     {
-        public long Id { get; set; }
         [Required]
         [StringLength(100)]
         public string Name { get; set; } = string.Empty;

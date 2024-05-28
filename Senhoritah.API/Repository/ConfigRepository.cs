@@ -14,14 +14,14 @@ namespace Senhoritah.API.Repository
         }
         public async Task<ConfigModel> FindConfig()
         {
-            ConfigModel config = await _context.Config.Where(c => c.id == 1).FirstOrDefaultAsync();
+            ConfigModel config = await _context.Config.Where(c => c.Id == 1).FirstOrDefaultAsync();
 
             return config;
         }
 
         public async Task<ConfigModel> UpdateConfig(ConfigModel config)
         {
-            config.id = 1;
+            config.Id = 1;
             _context.Config.Update(config);
             await _context.SaveChangesAsync();
 

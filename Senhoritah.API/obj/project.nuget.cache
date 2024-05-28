@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bbt4l+cb9z1b8bqq7WZ1p6T1F30u8qbPCfjVffDfVgeM/IC+4fCqUXax69uzIbFEAQpTX+QzpTUAPzz6hVzV7Q==",
+  "dgSpecHash": "GMJRNjkmAPtwcVl8U6vdaiUBGqowRJSplWFB7krX3mFjRIYD2c/gordpv/5WcnNetjAE32S+NRz9ZR/hHM8r0g==",
   "success": true,
   "projectFilePath": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\Senhoritah.API\\Senhoritah.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Eduardo Castor\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\Eduardo Castor\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Eduardo Castor\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Eduardo Castor\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",

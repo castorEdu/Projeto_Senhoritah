@@ -71,5 +71,6 @@ namespace Senhoritah.API.Controllers
         {
             return await _recipesRepository.DeleteRecipeProduct(idRecipe, idProduct);
         }
+
     }
 }

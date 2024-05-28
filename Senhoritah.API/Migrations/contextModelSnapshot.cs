@@ -22,11 +22,37 @@ namespace Senhoritah.API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Senhoritah.API.Model.BillsModel", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bills");
+                });
+
             modelBuilder.Entity("Senhoritah.API.Model.ClientsModel", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
@@ -47,11 +73,12 @@ namespace Senhoritah.API.Migrations
 
             modelBuilder.Entity("Senhoritah.API.Model.ConfigModel", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint")
+                        .HasColumnName("id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
                     b.Property<decimal>("calculo_mercado")
                         .HasColumnType("decimal(18,2)");
@@ -65,14 +92,14 @@ namespace Senhoritah.API.Migrations
                     b.Property<decimal>("mao_de_obra")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("Config");
 
                     b.HasData(
                         new
                         {
-                            id = 1,
+                            Id = 1L,
                             calculo_mercado = 2m,
                             energia_agua = 20m,
                             extra = 1m,
@@ -82,11 +109,12 @@ namespace Senhoritah.API.Migrations
 
             modelBuilder.Entity("Senhoritah.API.Model.ProductModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint")
+                        .HasColumnName("id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
                     b.Property<string>("Brand")
                         .IsRequired()
@@ -103,7 +131,17 @@ namespace Senhoritah.API.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<long?>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("UnitId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UnitId");
 
                     b.ToTable("Products");
                 });
@@ -112,7 +150,8 @@ namespace Senhoritah.API.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
@@ -123,22 +162,20 @@ namespace Senhoritah.API.Migrations
                         .IsRequired()
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
 
                     b.Property<long>("RecipeId")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Unit")
-                        .IsRequired()
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar(3)");
+                    b.Property<long>("UnitId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
-
                     b.HasIndex("RecipeId");
+
+                    b.HasIndex("UnitId");
 
                     b.ToTable("Recipe_products");
                 });
@@ -147,7 +184,8 @@ namespace Senhoritah.API.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
@@ -169,23 +207,93 @@ namespace Senhoritah.API.Migrations
                     b.ToTable("Recipes");
                 });
 
-            modelBuilder.Entity("Senhoritah.API.Model.ProductsRecipeModel", b =>
+            modelBuilder.Entity("Senhoritah.API.Model.UnitsModel", b =>
                 {
-                    b.HasOne("Senhoritah.API.Model.ProductModel", "Product")
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("Abbreviations")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Units");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Abbreviations = "kg",
+                            Name = "Kilos"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Abbreviations = "g",
+                            Name = "Gramos"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Abbreviations = "l",
+                            Name = "Litros"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            Abbreviations = "ml",
+                            Name = "Mililitros"
+                        });
+                });
+
+            modelBuilder.Entity("Senhoritah.API.Model.ProductModel", b =>
+                {
+                    b.HasOne("Senhoritah.API.Model.ProductsRecipeModel", null)
+                        .WithMany("Product")
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("Senhoritah.API.Model.UnitsModel", "Unit")
                         .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("UnitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Senhoritah.API.Model.RecipesModel", "Recipes")
+                    b.Navigation("Unit");
+                });
+
+            modelBuilder.Entity("Senhoritah.API.Model.ProductsRecipeModel", b =>
+                {
+                    b.HasOne("Senhoritah.API.Model.RecipesModel", "Recipe")
                         .WithMany()
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.HasOne("Senhoritah.API.Model.UnitsModel", "Unit")
+                        .WithMany()
+                        .HasForeignKey("UnitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Recipes");
+                    b.Navigation("Recipe");
+
+                    b.Navigation("Unit");
+                });
+
+            modelBuilder.Entity("Senhoritah.API.Model.ProductsRecipeModel", b =>
+                {
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }

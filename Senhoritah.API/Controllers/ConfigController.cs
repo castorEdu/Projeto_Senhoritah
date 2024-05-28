@@ -28,7 +28,7 @@ namespace Senhoritah.API.Controllers
         public async Task<ActionResult<ConfigModel>> Put([FromBody] ConfigModel config)
         {
             if (config == null) return BadRequest();
-            config.id = 1;
+            config.Id = 1;
             await _configRepository.UpdateConfig(config);
             return Ok(config);
         }

@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Senhoritah.API.Model.Base;
 
 namespace Senhoritah.API.Model
 {
-    public class ConfigModel
+    public class ConfigModel:BaseEntity
     {
-        public int id { get; set; }
         [Display(Name = "Mão de Obra")]
         [Required]
         [Column(TypeName = "decimal(18, 2)")]

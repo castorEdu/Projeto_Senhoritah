@@ -10,12 +10,17 @@ namespace Senhoritah.API
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<context>(options =>
-            options.UseSqlServer("Data Source=localhost;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Initial Catalog=SrtaH;"));
+            options.UseSqlServer("Data Source=localhost;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Initial Catalog=senhoritah;"));
             // Add services to the container.
             builder.Services.AddScoped<IConfigRepository, ConfigRepository>();
             builder.Services.AddScoped<IClientsRepository, ClientsRepository>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<IRecipesRepository, RecipesRepository>();
+            builder.Services.AddScoped<IBillRepository, BillRepository>();
+            builder.Services.AddScoped<IUnitRepository, UnitRepository>();
+            builder.Services.AddScoped<IBuyRepository, BuyRepository>();
+
+            builder.Services.AddScoped<DapperContext>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

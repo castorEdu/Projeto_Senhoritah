@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using Senhoritah.API.Model;
 using Senhoritah.API.Repository;
 
@@ -63,6 +64,22 @@ namespace Senhoritah.API.Controllers
             var product = await _respository.FindByName(name);
             if (product == null) return NotFound();
             return Ok(product);
+        }
+
+        [HttpGet("occurencies/{id}")]
+        public async Task<ActionResult<IEnumerable<ProductModel>>> GetProductInRecipes(long id)
+        {
+            var products = await _respository.FindProductInRecipes(id);
+            if (products == null) return BadRequest();
+            return Ok(products);
+        }
+
+        [HttpDelete("product-recipes/{id}")]
+        public async Task<ActionResult<bool>> DeleteProductRecipe(int id)
+        {
+            var status = await _respository.DeleteProductRecipes(id);
+            if (!status) return BadRequest();
+            return true;
         }
     }
 }
