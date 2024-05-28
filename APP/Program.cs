@@ -1,6 +1,8 @@
 using APP.Services;
 using APP.Services.IService;
 using APP.Utils;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 namespace APP
 {
@@ -14,11 +16,13 @@ namespace APP
             builder.Services.AddHttpClient<IClientService, ClientService>(c => c.BaseAddress = new Uri(builder.Configuration["ServicesUrls:API"]));
             builder.Services.AddHttpClient<IProductServices, ProductService>(c => c.BaseAddress = new Uri(builder.Configuration["ServicesUrls:API"]));
             builder.Services.AddHttpClient<IRecipesService, RecipeService>(c => c.BaseAddress = new Uri(builder.Configuration["ServicesUrls:API"]));
+            builder.Services.AddHttpClient<IPurchaseService, PurchaseService>(c => c.BaseAddress = new Uri(builder.Configuration["ServicesUrls:API"]));
+            builder.Services.AddHttpClient<IUnitService, UnitService>(c => c.BaseAddress = new Uri(builder.Configuration["ServicesUrls:API"]));
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            builder.Services.AddSingleton<Resorces>();
+            builder.Services.AddSingleton<DataSheetRN>();
 
             builder.Services.AddDistributedMemoryCache();
             builder.Services.AddSession(options =>
@@ -45,7 +49,15 @@ namespace APP
 
             app.UseAuthorization();
 
+            var defaultCulture = new CultureInfo("pt-BR");
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(defaultCulture),
+                SupportedCultures = new List<CultureInfo> { defaultCulture },
+                SupportedUICultures = new List<CultureInfo> { defaultCulture }
+            };
 
+            app.UseRequestLocalization(localizationOptions);
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");

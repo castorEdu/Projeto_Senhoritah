@@ -5,7 +5,7 @@
 <h1 style="color: #412E27; padding: 10px 0 10px 0">Ficha Tecnica</h1>
 <div style="width: 100%; height: 89vh;padding: 20px; border-radius: 10px;background-color: #F5F5F5;-webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px#ffffff;box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;">
 
-        <div style="padding: 10px; width: 100%;"><a asp-action="DataSheetCreate" class="btn btn-primary">Criar Ficha Técnica</a></div>
+        <div style="padding: 10px; width: 100%;"><a asp-action="DataSheetProductSession" class="btn btn-primary">Criar Ficha Técnica</a></div>
         <table class="table">
             <thead>
                 <tr>
@@ -23,6 +23,9 @@
                         <td>
                             <a asp-controller="DataSheet" asp-action="RecipeDetails" asp-route-id="@item.Id" style="cursor: pointer;"><img src="~/icons/edit_icon.svg" alt="edit" /></a>
                             <a id="showModal" onclick="Confirm(@item.Id)" style="cursor: pointer;"><img src="~/icons/delete_icon.svg" alt="delete" /><a>
+                            <a asp-action="Details" asp-route-id="@item.Id" style="margin-left: 1rem">
+                                <img src="~/icons/output_icon.svg" alt="Alternate Text" />
+                            </a>
                         </td>
                     </tr>                    
                 }

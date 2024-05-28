@@ -1,75 +1,179 @@
 ﻿@model DataSheetViewModel
 @{
     Layout = "_LayoutHome";
+    
 }
-<h1 style="color: #412E27; padding: 10px 0 10px 0">@ViewData["Name"]</h1>
-<div class="d-flex" style="width: 100%; height: 89vh;">
-   <div style=" width: 65%;">
-       <div>
-            <form asp-action="Search" class="card-content" style="display: flex;padding: 15px; width: fit-content; margin-right: 2rem; width: 100%">
-                <input class="input-style" name="name" value="" placeholder="Nome Produto" style="width: 600px; margin-right:2rem;" />
-                <input class="btn btn-primary" type="submit" name="name" value="Buscar" />
-            </form>
-       </div>
-        <div style="height:79%;">
-            <div class="card-content" style="height:100%;margin-top: 1.5rem; margin-bottom: 1.5rem;padding: 20px; ">
-                <div style="overflow: auto; height: 65vh; width: 100%;">
-                    <table class="table">
-                        <thead>
-                            <tr style="border-bottom: 2px solid #000000;">
-                                <th style="color: #000000">Nome Produto</th>
-                                <th style="color: #000000">UN</th>
-                                <th style="color: #000000">Quantidade</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var prod in Model.Products)
-                            {
-                                <tr>
-                                    <form asp-action="AddProduct">
-                                        <input type="hidden" name="Id" value="@prod.Id" />
-                                        <td style="color: #000000;">@Html.DisplayFor(p => prod.Name)</td>
-                                        <td><input class="input-style" name="Unidade" value="" style="width: 45px;" maxlength="2" autocomplete="off" /></td>
-                                        <td><input class="input-style" name="Quantidade" value="" style="width: 100px;" /></td>
-                                        <td><input type="submit" class="btn btn-secondary" value="Add" /></td>
-                                    </form>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-       </div>
-        <div style="height:5.5%; margin-top: 2rem; display: flex; align-items: center">
-            <a asp-action="Cancel" class="btn btn-danger">Cancelar</a>
-       </div>
-   </div>
-   <div class="d-flex flex-column" style="width: 35%; margin-left: 2rem">
-        <div class="card-content" style="height: 70%; width: 100%; padding: 15px; margin-bottom:2rem">
-            <h4>Detalhes</h4>
-            <hr />
-            @foreach (var item in Model.AddedProducts)
-            {
-                <form asp-action="RemoveAddedProducts" class="d-flex justify-content-around">
-                    <input type="hidden" name="Index" value="@item.Index" />
-                    <div>@item.ProductName</div>
-                    <div>@item.Unit</div>
-                    <div>@item.Amount</div>
-                    <button type="submit" style="background-color: transparent; border: 2px solid red; border-radius:100%"><img src="~/icons/delete_icon.svg" alt="Alternate Text" /></button>
-                </form>
-                <hr />
-            }
-       </div>
-       <form asp-action="PreSave" style="width: 100%;height: 30%">
-           <div class="card-content" style="width: 100%; border-radius: 10px; padding: 15px;height: 70%">
-               <h4>Descrição</h4>
-               <hr />
-               <textarea name="Description" class="input-style" style="height:80px;max-height:80px;min-height: 80px; width: 100%" placeholder="Descrição" autocomplete="off"></textarea>
-           </div>
-           <div style="width: 100%; margin-top: 2rem;">
-               <input type="submit" class="btn btn-success" value="Avançar" style="width: 100%" />
-           </div>
-       </form>
-   </div>
+
+<div class="d-flex justify-content-between align-items-center" style="margin-bottom: 1rem">
+    <input id="name" class="input-name-ficha" value="@Model.Recipe.Name" placeholder="Nome ficha técnica" autocomplete="off" />
+    <a asp-action="DataSheetIndex" class="btn btn-danger d-flex align-items-center">Cancelar</a>
 </div>
+
+<div class="card-content" style="height: 82vh">
+    <div style="width: 100%; padding: 20px;">
+        <h4>Adicionar Produtos</h4>
+        <hr/>
+        <form asp-action="AddProduct" class="d-flex align-items-end">
+            <input type="hidden" name="Id" id="IdProduto" />
+            <div class="d-flex flex-column">
+                <label>Nome Produto</label>
+                <input id="SearchProduct" class="input-style" style="width: 600px;height: 45px;margin-right: 1rem" autocomplete="off" />
+            </div>
+            <div class="d-flex flex-column">
+                <label>Categoria</label>
+                <input id="Categoria" class="input-style" name="name" value="" style="margin-right: 1rem; width: 150px;text-align: center" disabled />
+            </div>
+            <div class="d-flex flex-column">
+                <label>Marca</label>
+                <input id="Marca" class="input-style" name="name" value="" style="margin-right: 1rem; width: 150px;text-align: center" disabled />
+            </div>
+            <div class="d-flex flex-column">
+                <label>Unidade</label>
+                <select name="ProductsRecipe.Unit" asp-items="Model.Units" class="input-style" style="width: 120px;height: 45px;margin-right: 1rem" id="idUnit">
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <div class="d-flex flex-column">
+                <label>Quantidade</label>
+                <input asp-for="ProductsRecipe.Amount" class="input-style" style="height: 45px; width: 150px;margin-right: 1rem" autocomplete="off"/>
+            </div>
+            <div class="d-flex flex-column" style="margin-right: 2rem">
+                <label>Peso</label>
+                <input asp-for="ProductsRecipe.Weight" class="input-style" style="height: 45px; width: 150px;margin-right: 1rem" autocomplete="off" step="0.01" min="0" />
+            </div>
+
+            <input class="btn btn-primary" type="submit" name="name" value="Add" style="height: 45px;" />
+        </form>
+
+        <div id="productContent" style="position: absolute; z-index: 1;">
+        </div>
+    </div>
+    <div style="width: 100%; height: 60vh;margin-top: 1rem;overflow-y: auto;padding: 20px; z-index: 0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome Produto</th>
+                    <th>Categoria</th>
+                    <th>Marca</th>
+                    <th>Unidade</th>
+                    <th>Quantidade</th>
+                    <th>Peso</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.AddedProducts)
+                {
+                    <form asp-action="RemoveAddedProducts">
+                        <tr>
+                            <input type="hidden" name="Index" value="@item.Index" />
+                            <td>@item.Product.Name</td>
+                            <td>@item.Product.ProductCategory</td>
+                            <td>@item.Product.Brand</td>
+                            <td>@item.Unit</td>
+                            <td>@item.Amount</td>
+                            <td>@item.Weight</td>
+                            <td><button type="submit" style="background-color: transparent; border: none"><img src="~/icons/delete_icon.svg" alt="Alternate Text" /></button></td>
+                        </tr>
+                    </form>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="d-flex align-items-center justify-content-end" style="width: 100%; height: 7vh; padding: 20px;">
+    <a asp-action="PreSave" class="btn btn-success" style="width: 100px">Avançar</a>
+</div>
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+    var element;
+    $(document).ready(function () {
+        $('#name').on('input', function () {
+            var value = $(this).val();
+            $.ajax({
+                url: '@Url.Action("OnNameChange", "DataSheet")',
+                type: 'GET',
+                data: { name: value }
+            })
+        });
+        // $('input[type="number"]').on('input', function () {
+        //     var value = $(this).val();
+        //     console.log(value)
+        //     if (value.includes(',')) {
+        //         value = value.replace(',', '.');
+        //             $(this).val(value);
+        //     }
+        // });
+            $.validator.methods.range = function (value, element, param) {
+                var globalizedValue = value.replace(".", "");
+                globalizedValue = globalizedValue.replace(",", ".");
+                return this.optional(element) ||
+                    (globalizedValue >= param[0] &&
+                        globalizedValue <= param[1]);
+            };
+
+            $.validator.methods.number = function (value, element) {
+                return this.optional(element) ||
+                    /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/
+                        .test(value);
+            };
+        $('#SearchProduct').on('input', function () {
+            var query = $(this).val();
+            $.ajax({
+                url: '@Url.Action("Search", "DataSheet")',
+                type: 'GET',
+                data: { name: query },
+                success: function (result) {
+                    $('#productContent').empty().show();
+                    if (result.length > 0) {
+                        var contentShell = $('<div>').attr('style', 'margin-top: .5rem;position: relative;padding: 20px; width: 600px; max-height: 400px; background-color: transparent; border-radius: 0px 0px 10px 10px; background-color: #FFF; border: 1px solid black;overflow-y: auto');
+
+                        result.forEach(function (item) {
+                            var component = $('<div>').attr('style', 'margin-bottom: 1rem');
+                            component.addClass('d-flex align-items-center justify-content-between');
+
+                            var name = $('<div>').text(item.name);
+                            component.append(name);
+
+                            var button = $('<button>');
+                            button.addClass('btn-adicionar btn btn-secondary');
+                            button.val(item.id);
+                            button.text('Selecionar');
+
+
+                            component.append(button);
+
+                            contentShell.append(component);
+
+                            var hr = $('<hr/>')
+                            contentShell.append(hr);
+                        });
+                        $('#productContent').append(contentShell);
+                    }
+                }
+            })
+        });
+        $(document).on('click', '.btn-adicionar', function () {
+            var Id = $(this).val();
+            console.log(Id);
+            $.ajax({
+                url: '@Url.Action("SelectedProduct", "DataSheet")',
+                type: 'GET',
+                data: {id: Id},
+                success: function(result){
+                    $('#Categoria').val(result.productCategory);
+                    $('#Marca').val(result.brand);
+                    $('#SearchProduct').val(result.name);
+                    $('#IdProduto').val(result.id)
+
+                    $('#productContent').empty();
+                }
+
+            })
+        });
+    });
+
+</script>
+}

@@ -31,14 +31,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlnXENvbmZpZ0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Consult/ConsultClientIndex.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdFxDb25zdWx0Q2xpZW50SW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Consult/ConsultProductsIndex.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdFxDb25zdWx0UHJvZHVjdHNJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/DataSheet/DataSheetCreate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVNoZWV0XERhdGFTaGVldENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -51,12 +43,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVNoZWV0XERhdGFTaGVldFByb2R1Y3RTZXNzaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/DataSheet/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVNoZWV0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/DataSheet/PreSave.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVNoZWV0XFByZVNhdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/DataSheet/RecipeDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVNoZWV0XFJlY2lwZURldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/DataSheet/RecipeDetailsProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVNoZWV0XFJlY2lwZURldGFpbHNQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/DataSheet/Search.cshtml]
@@ -79,32 +79,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcU2VhcmNoUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Releases/ReleaseClients.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZUNsaWVudHMuY3NodG1s
+[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Purchases/PurchaseIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2VzXFB1cmNoYXNlSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Releases/ReleaseDeleteProduct.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZURlbGV0ZVByb2R1Y3QuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Releases/ReleaseIndex.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZUluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Releases/ReleaseProduct.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZVByb2R1Y3QuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Releases/ReleaseRecipes.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZVJlY2lwZXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Releases/ReleaseSearchProduct.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsZWFzZXNcUmVsZWFzZVNlYXJjaFByb2R1Y3QuY3NodG1s
+[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Purchases/ShoppingIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2VzXFNob3BwaW5nSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Shared/_ProductTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qcm9kdWN0VGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -119,18 +107,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-sara90ikyu
-
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Shared/_LayoutConsult.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDb25zdWx0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = b-dmx6zxdtzt
-
 [C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Shared/_LayoutHome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-l8gcmeqe8b
-
-[C:/Projeto_senhoritah/Projeto_Senhoritah/APP/Views/Shared/_LayoutReleases.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRSZWxlYXNlcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = b-0lv6j9wguf

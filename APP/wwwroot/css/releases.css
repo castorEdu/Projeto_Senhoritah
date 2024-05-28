@@ -33,13 +33,20 @@
     background-color: #eaeaea;
     color: #000000;
 }
+.input-name-ficha {
+    color: #412E27;
+    height: 7vh;
+    border: none;
+    font-size: 40px;
+    background-color: transparent;
+}
 .card-content {
     border-radius: 10px;
     background-color: #F5F5F5;
     -webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;
     box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;
 }
-.input-style:focus{
+.input-style:focus, .input-name-ficha:focus{
     border: none;
     outline: none;
 }

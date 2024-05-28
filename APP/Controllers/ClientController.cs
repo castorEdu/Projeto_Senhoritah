@@ -18,25 +18,25 @@ namespace APP.Controllers
             var client = await _clientService.FindAll();
             var viewModel = new ClientViewModel
             {
-                //ClientModel = cli,
                 Clients = client
             };
             return View(viewModel);
         }
         public async Task<ActionResult> SearchClient(string Name)
         {
-            if (Name != null)
+            if (!string.IsNullOrEmpty(Name))
             {
                 var client = await _clientService.FindByName(Name);
                 if (client == null) client = Enumerable.Empty<ClientModel>();
-                var viewModel = new ClientViewModel
-                {
-                    ClientModel = new ClientModel(),
-                    Clients = client
-                };
-                return View(viewModel);
+                return Ok(client);
             }
-            return RedirectToAction(nameof(ClientIndex));
+            else
+            {
+                var allClients = await _clientService.FindAll();
+                if(allClients == null) allClients = Enumerable.Empty<ClientModel>();
+                return Ok(allClients);
+            }
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -8,15 +8,21 @@
         <h3>Editar Cliente</h3>
         <form asp-action="EditClient">
             <div asp-validation-summary="ModelOnly"></div>
+            <input type="hidden" asp-for="Id" />
             <div class="d-flex flex-column" style="width: 400px; margin-bottom: .5rem">
                 <label asp-for="Name"></label>
                 <input asp-for="Name" class="input-style" style="background-color: #eaeaea; color: #000000;" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="d-flex flex-column" style="width: 400px;margin-bottom: .5rem">
-                <label asp-for="PhoneNumber"></label>
+                <label asp-for="PhoneNumber">Telefone</label>
                 <input asp-for="PhoneNumber" class="input-style" style="background-color: #eaeaea; color: #000000;" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="d-flex flex-column" style="width: 400px;margin-bottom: .5rem">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="input-style" style="background-color: #eaeaea; color: #000000;" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="d-flex justify-content-between align-items-center" style="width: 400px;">
                 <a asp-action="ClientIndex">Voltar</a>

@@ -1,0 +1,40 @@
+﻿@model DataSheetViewModel
+<table class="table">
+    <thead>
+        <tr style="border-bottom: 2px solid #000000;">
+            <th style="color: #000000; width: 400px">Nome Produto</th>
+            <th style="color: #000000;">Unidade</th>
+            <th style="color: #000000;">Peso</th>
+            <th style="color: #000000">Quantidade</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prod in Model.Products)
+        {
+            <tr>
+                <form action="/DataSheet/AddProduct">
+                    <input type="hidden" name="Id" value="@prod.Id" />
+                    <td style="color: #000000; padding-top:20px;">@Html.DisplayFor(p => prod.Name)</td>
+                    <td>
+                        <select name="Unit" asp-items="Model.Units" class="input-style">
+                            <option value="">Todos</option>
+                        </select>
+                    </td>
+                    <td><input name="Weight" class="input-style" value="" style="width: 100px;" autocomplete="off" /></td>
+                    <td><input name="Amount" class="input-style" value="" style="width: 100px;" autocomplete="off" /></td>
+                    <td><input id="btn-add" type="submit" class="btn btn-secondary" value="Add" /></td>
+                </form>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#btn-add').on('click', function () {
+                console.log($(this).parent)
+            })
+        })
+    </script>
+}

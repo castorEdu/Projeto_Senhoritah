@@ -2,38 +2,233 @@
 @{
     Layout = "_LayoutHome";
 }
-<h1 style="color: #412E27; padding: 10px 0 10px 0">Detalhes Ficha Tecnica</h1>
-<form class="d-flex" style="width: 100%; height: 89vh;">
-    <div class="d-flex flex-column" style="width: 35%; margin-right: 2rem">
-        <div style="width: 100%; height: 35%; padding: 20px;" class="card-content">
-            <div asp-validation-summary="ModelOnly"></div>
-            <div class="d-flex flex-column" style="margin-bottom: 1rem">
-                <label style="margin-bottom: .5rem">Nome</label>
-                <input asp-for="Recipes.Name" class="input-style"/>
-                <span asp-validation-for="Recipes.Name"></span>
-            </div>
-            <div class="d-flex flex-column">
-                <label style="margin-bottom: .5rem">Categoria</label>
-                <textarea asp-for="Recipes.Description" class="input-style" style="height:120px;max-height:120px;min-height: 120px;"></textarea>
-                <span asp-validation-for="Recipes.Description"></span>
-            </div>
+<div class="d-flex justify-content-between">
+    <h1 style="color: #412E27; padding: 10px 0 10px 0">Editar Ficha Tecnica</h1>
+    <a asp-action="DataSheetIndex">voltar</a>
+</div>
+<div class="d-flex" style="width: 100%; height: 89vh;">
+    <div class="card-content" style="height: 100%; width: 40%; padding: 20px; margin-right: 2rem">
+        <input asp-for="Recipes.Price" type="hidden" />
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="d-flex flex-column" style="margin-bottom: 1rem; ">
+            <label style="margin-bottom: .5rem">Nome</label>
+            <input asp-for="Recipes.Name" class="input-style" id="Name"/>
         </div>
-        <div style="width: 100%; display: flex; justify-content: center; margin-top: 2rem">
-            <input class="btn btn-success" type="submit" name="name" value="Salvar" style="width: 80%" />
+        <div class="d-flex flex-column" style="margin-bottom: 1rem; ">
+            <label style="margin-bottom: .5rem">Descrição</label>
+            <textarea asp-for="Recipes.Description" class="input-style" style="height:120px;max-height:120px;min-height: 120px; width: 100%;" id="Description"></textarea>
+        </div>
+        <hr/>
+        <form asp-action="AddedProductEdit">
+            <input asp-for="Recipes.Id" type="hidden"/>
+            <div class="d-flex justify-content-between" style="width: 100%;margin-bottom: 1rem; ">
+                <input type="hidden" name="idProduct" id="IdProduto" />
+                <div class="d-flex flex-column">
+                    <label>Nome Produto</label>
+                    <input id="SearchProduct" class="input-style" style="width: 280px;height: 45px;" autocomplete="off" />
+                </div>
+                <div class="d-flex flex-column">
+                    <label>Categoria</label>
+                    <input id="Categoria" class="input-style" name="name" value="" style=" width: 150px;text-align: center" disabled />
+                </div>
+                <div class="d-flex flex-column">
+                    <label>Marca</label>
+                    <input id="Marca" class="input-style" name="name" value="" style=" width: 150px;text-align: center" disabled />
+                </div>
+            </div>
+            <div class="d-flex align-items-end" style="margin-bottom: 1rem; ">
+                <div class="d-flex flex-column">
+                    <label>Unidade</label>
+                    <select name="ProductsRecipe.Unit" asp-items="Model.Units" class="input-style" style="width: 120px;height: 45px;margin-right: 1rem" id="idUnit">
+                        <option value="">Todos</option>
+                    </select>
+                </div>
+                <div class="d-flex flex-column">
+                    <label>Quantidade</label>
+                    <input asp-for="ProductsRecipe.Amount" class="input-style" style="height: 45px; width: 150px;margin-right: 1rem" autocomplete="off" />
+                </div>
+                <div class="d-flex flex-column" style="margin-right: 2rem">
+                    <label>Peso</label>
+                    <input asp-for="ProductsRecipe.Weight" class="input-style" style="height: 45px; width: 150px;margin-right: 1rem" autocomplete="off" step="0.01" min="0" />
+                </div>
+
+                <input class="btn btn-primary" type="submit" name="name" value="Add" style="height: 40px;" />
+            </div>
+        </form>
+        <div id="productContent" style="width: 100%;height: 350px;">
         </div>
     </div>
-    <div style="width: 65%; height: 100%; padding: 20px" class="card-content">
-        <div style="width: 100%; height: 100%;padding: 10px">
+    <div class="card-content" style="width: 60%; height: 89vh; padding: 20px">
+        <div style="height: 95%; overflow-y: auto;">
             @foreach (var item in Model.Products)
             {
-                <div class="d-flex justify-content-around input-style" style="width: 100%; height: 6vh; margin-bottom: 1rem">
-                    <div>@item.Product.Name</div>
-                    <div>@item.Product.ProductCategory</div>
-                    <div>@item.Product.Brand</div>
-                    <div>@item.Unit</div>
-                    <div>@item.Amount</div>
-                </div> 
+                <div class="d-flex justify-content-around align-items-center input-style" style="width: 100%; height: 6vh; margin-bottom: 1rem; padding: 10px">
+                    <div style="width: 30%; text-align: center;">
+                        <p style="margin: 0; padding: 0; font-size: 10px; color: #ACACAC">Nome</p>
+                        <div>@item.Product.Name</div>
+                    </div>
+                    <div style="width: 20%; text-align: center;">
+                        <p style="margin: 0; padding: 0; font-size: 10px; color: #ACACAC">Unidade</p>
+                        <div>@item.Unit</div>
+                    </div>
+                    <div style="width: 20%; text-align: center;">
+                        <p style="margin: 0; padding: 0; font-size: 10px; color: #ACACAC">Quantidade</p>
+                        <div>@item.Amount</div>
+                    </div>
+                    <div style="width: 20%; text-align: center;">
+                        <p style="margin: 0; padding: 0; font-size: 10px; color: #ACACAC">Peso</p>
+                        <div>@item.Weight</div>
+                    </div>
+                    <div class="d-flex" style="width: 20%; justify-content: center;">
+                        <form asp-action="RecipeDetailsProduct">
+                            <input type="hidden" name="idRecipe" value="@Model.Recipes.Id" />
+                            <input type="hidden" name="idProduct" value="@item.IdProduct" />
+                            <button type="submit" style="background-color: transparent; border: none">
+                                <img src="~/icons/edit_icon.svg" alt="Alternate Text" />
+                            </button>
+                        </form>
+                        <a id="showModal" onclick="Confirm(@item.IdProduct)" style="cursor: pointer;"><img src="~/icons/delete_icon.svg" alt="delete"></a>
+                    </div>
+                </div>
+            }
+            @foreach (var itemDeleted in Model.ProductsDeleted)
+            {
+                <div class="input-style" style="border: 2px solid red; padding: 0; margin-bottom: 1rem">
+                    <p style="font-size: 10px;margin:0; padding:5px;color: #000000">Registro Excluido</p>
+                    <div class="d-flex justify-content-around align-items-center input-style" style="background-color: #eaeaea;width: 100%; height: 6vh;">
+                        <div style="width: 30%; text-align: center; color: #000000">
+                            <p>Nome</p>
+                            <div>@itemDeleted.Product.Name</div>
+                        </div>
+                        <div style="width: 20%; text-align: center; color: #000000">
+                            <p>Unidade</p>
+                            <div>@itemDeleted.Unit</div>
+                        </div>
+                        <div style="width: 20%; text-align: center; color: #000000">
+                            <p>Quantidade</p>
+                            <div>@itemDeleted.Amount</div>
+                        </div>
+                        <div style="width: 20%; text-align: center; color: #000000">
+                            <p>Peso</p>
+                            <div>@itemDeleted.Weight</div>
+                        </div>
+                        <div class="d-flex" style="width: 20%; text-align: center">
+                            <form asp-action="Undo">
+                                <input type="hidden" name="idProduct" value="@itemDeleted.IdProduct" />
+                                <input type="hidden" name="idRecipe" value="@Model.Recipes.Id" />
+                                <input type="submit" value="Undo" style="cursor: pointer; color: mediumblue; border: none; background-color: transparent" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
             }
         </div>
+        <form asp-action="Edit" style="width: 100%; display: flex; justify-content: end">
+            <input asp-for="Recipes.Id" type="hidden" />
+            <input type="submit" class="btn btn-success" value="Salvar edição" />
+        </form>
     </div>
-</form>
+</div>
+
+<!-- DELETE -->
+<div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="RecipeDetailsProductDelete">
+                <input type="hidden" id="idDelete" name="idProduct" />
+                <input type="hidden" id="idRecipe" name="idRecipe" value="@Model.Recipes.Id" />
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Ação!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Deseja realmente deletar esse produto da ficha tecnica?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="btnDelete" type="submit" class="btn btn-danger">Deletar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $('#SearchProduct').on('input', function () {
+            var query = $(this).val();
+            $.ajax({
+                url: '@Url.Action("Search", "DataSheet")',
+                type: 'GET',
+                data: { name: query },
+                success: function (result) {
+                    $('#productContent').empty().show();
+                    if (result.length > 0) {
+                        var contentShell = $('<div>').attr('style', 'padding: 20px; width: 100%; max-height: 350px; background-color: transparent; border-radius: 0px 0px 10px 10px; background-color: #FFF;overflow-y: auto');
+
+                        result.forEach(function (item) {
+                            var component = $('<div>').attr('style', 'margin-bottom: 1rem');
+                            component.addClass('d-flex align-items-center justify-content-between');
+
+                            var name = $('<div>').text(item.name);
+                            component.append(name);
+
+                            var button = $('<button>');
+                            button.addClass('btn-adicionar btn btn-secondary');
+                            button.val(item.id);
+                            button.text('Selecionar');
+
+
+                            component.append(button);
+
+                            contentShell.append(component);
+
+                            var hr = $('<hr/>')
+                            contentShell.append(hr);
+                        });
+                        $('#productContent').append(contentShell);
+                    }
+                }
+            })
+        });
+        $(document).on('click', '.btn-adicionar', function () {
+            var Id = $(this).val();
+            console.log(Id);
+            $.ajax({
+                url: '@Url.Action("SelectedProduct", "DataSheet")',
+                type: 'GET',
+                data: { id: Id },
+                success: function (result) {
+                    $('#Categoria').val(result.productCategory);
+                    $('#Marca').val(result.brand);
+                    $('#SearchProduct').val(result.name);
+                    $('#IdProduto').val(result.id)
+
+                    $('#productContent').empty();
+                }
+
+            })
+        });
+        $('#Name').on('input', function () {
+            $.ajax({
+                url: '@Url.Action("OnNameChange", "DataSheet")',
+                type: 'GET',
+                data: { name: $('#Name').val() }
+            });
+        });
+        $('#Description').on('input', function () {
+            $.ajax({
+                url: '@Url.Action("OnDescriptionChange", "DataSheet")',
+                type: 'GET',
+                data: { desc: $('#Description').val() }
+            });
+        });
+        var Confirm = function (id) {
+            $("#idDelete").val(id);
+            $("#DeleteModal").modal('show');
+        }
+    </script>
+}

@@ -6,10 +6,7 @@
 <div class="d-flex" style="width: 100%">
     <div style="height:89vh ;width: 100%;padding: 20px ; border-radius: 10px;background-color: #F5F5F5;-webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff; ">
          <div class="d-flex justify-content-between">
-              <form asp-action="SearchProduct">
-                <input name="Name" value="" class="input-style" style="background-color: #eaeaea; color: #000000;width: 500px" placeholder="Pesquisar" autocomplete="off" />
-                  <input type="submit" value="Buscar" style="background-color: #0C5DF4;color: #FFFFFF; padding: 9px; border-radius: 5px;border:none"  >
-              </form>
+            <input type="text" id="search" name="name" class="input-style" style="background-color: #eaeaea; color: #000000;width: 500px" placeholder="Pesquisar" autocomplete="off" />
              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#CreateModal">
                  Criar Produto
              </button>
@@ -22,16 +19,18 @@
                          <th>Nome</th>
                          <th>Categoria</th>
                          <th>Marca</th>
+                         <th>Unidade</th>
                          <th></th>
                      </tr>
                  </thead>
-                 <tbody>
+                <tbody id="productsResult">
                      @foreach (var product in Model.Products)
                      {
                          <tr>
                              <td>@Html.DisplayFor(p => product.Name)</td>
                              <td>@Html.DisplayFor(p => product.ProductCategory)</td>
                              <td>@Html.DisplayFor(p => product.Brand)</td>
+                             <td>@Html.DisplayFor(p => product.Unit.Abbreviation)</td>
                              <td>
                                 <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id" style="cursor: pointer;"><img src="~/icons/edit_icon.svg" alt="edit" /></a>
                                  <a id="showModal" onclick="Confirm(@product.Id)" style="cursor: pointer;"><img src="~/icons/delete_icon.svg" alt="delete" /><a>
@@ -44,19 +43,20 @@
     </div>
 </div>
 
-<input type="hidden" id="idDelete" />
 <!-- DELETE -->
 <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form asp-action="DeleteProduct">
-                <input type="hidden" id="idDelete" />
+                <input type="hidden" id="idDelete" name="idDelete" />
+                @* <input type="number" id="idDelete" /> *@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Ação!</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     Deseja realmente deletar esse produto?
+                    <div id="messageValidateRecipe"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -80,17 +80,23 @@
                 <div class="d-flex flex-column align-items-center" style="width: 100%">
                     <form asp-controller="Products" asp-action="Create" class="form-releases">
                         <div asp-validation-summary="ModelOnly"></div>
-                        <div class="form-group" style="margin-bottom: .5rem;">
+                        <div class="d-flex flex-column form-group" style="margin-bottom: .5rem;">
                             <input asp-for="ProductModel.Name" placeholder="Nome Produto" class="input-style" style="width: 250px;background-color: #eaeaea; color: #000000;" autocomplete="off" name="ProductModel.Name" />
                             <span asp-validation-for="ProductModel.Name" class="text-danger"></span>
                         </div>
-                        <div class="form-group" style="margin-bottom: .5rem;">
+                        <div class="d-flex flex-column form-group" style="margin-bottom: .5rem;">
                             <input asp-for="ProductModel.ProductCategory" placeholder="Categoria" class="input-style" style="width: 250px;background-color: #eaeaea; color: #000000;" autocomplete="off" />
                             <span asp-validation-for="ProductModel.ProductCategory" class="text-danger"></span>
                         </div>
-                        <div class="form-group" style="margin-bottom: .5rem;">
+                        <div class="d-flex flex-column form-group" style="margin-bottom: .5rem;">
                             <input asp-for="ProductModel.Brand" placeholder="Marca" class="input-style" style="width: 250px; background-color: #eaeaea; color: #000000;" autocomplete="off" />
                             <span asp-validation-for="ProductModel.Brand" class="text-danger"></span>
+                        </div>
+                        <div class="d-flex flex-column form-group" style="margin-bottom: .5rem">
+                            <select asp-for="Unit" asp-items="Model.Units" style="width: 250px" class="input-style">
+                                <option value="">Selecione ...</option>
+                            </select>
+                            <span asp-validation-for="Unit" class="text-danger"></span>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -109,6 +115,26 @@
     <script>
 
         $(document).ready(function () {
+            $('#search').on('input', function () {
+                var query = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("SearchProduct", "Products")',
+                    type: 'GET',
+                    data: { Name: query },
+                    success: function (data) {
+                        $('#productsResult').empty().show();
+                        data.forEach(function (item) {
+                            var name = '<td>' + item.name + '</td>'
+                            var category = '<td>' + item.productCategory + '</td>'
+                            var brand = '<td>' + item.brand + '</td>'
+                            var unit = '<td>' + item.unit.abbreviation + '</td>'
+                            var actions = '<td><a href="/Products/ProductDetails/' + item.id + '"><img src="@Url.Content("~/icons/edit_icon.svg")" alt="edit" /></a><a id="showModal" onClick="Confirm(' + item.id + ')" style="cursor: pointer;"><img src="@Url.Content("~/icons/delete_icon.svg")" alt="delete" /></a><td>'
+                            $('#productsResult').append('<tr>' + name + category + brand + unit + actions + '</tr>')
+                        })
+                    }
+                })
+
+            })
             $("#btnDelete").click(function () {
                 var idD = $("#idDelete").val();
                 $.ajax({
@@ -127,6 +153,15 @@
             })
         })
         var Confirm = function(id) {
+            $.ajax({
+                url: '@Url.Action("IsProductInAnyRecipe", "Products")',
+                type: 'GET',
+                data: {id: id},
+                success: function(data){
+                    $('#messageValidateRecipe').empty()
+                    $('#messageValidateRecipe').append('<p>Existem ocorrências desse produto em Ficha técnica.</p>')
+                }
+            })
             $("#idDelete").val(id);
             $("#DeleteModal").modal('show');
         }

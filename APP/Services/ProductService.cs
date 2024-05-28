@@ -69,5 +69,24 @@ namespace APP.Services
             var result = await response.ReadContentAs<IEnumerable<ProductModel>>();
             return result;
         }
+
+        public async Task<IEnumerable<ProductsRecipeModel>> FindProductInRecipes(long idProduct)
+        {
+            var response = await _client.GetAsync($"{BasePath}/occurencies/{idProduct}");
+            return await response.ReadContentAs<IEnumerable<ProductsRecipeModel>>();
+        }
+
+        public async Task<bool> DeleteProductRecipes(long id)
+        {
+            var response = await _client.DeleteAsync($"{BasePath}/product-recipes/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.ReadContentAs<bool>();
+            }
+            else
+            {
+                throw new Exception("Something went wrong");
+            }
+        }
     }
 }

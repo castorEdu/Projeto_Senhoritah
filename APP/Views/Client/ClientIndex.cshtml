@@ -6,10 +6,11 @@
 <div class="d-flex" style="width: 100%">
     <div style="height:89vh ;width: 100%;padding: 20px ; border-radius: 10px;background-color: #F5F5F5;-webkit-box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff;box-shadow: 11px 11px 13px #e6e6e6, -11px -11px 13px #ffffff; ">
         <div class="d-flex justify-content-between">
-            <form asp-action="SearchClient">
+            <input type="text" id="search" name="name" class="input-style" style="background-color: #eaeaea; color: #000000;width: 500px" placeholder="Pesquisar" autocomplete="off" />
+            @* <form asp-action="SearchClient">
                 <input name="Name" value="" class="input-style" style="background-color: #eaeaea; color: #000000;width: 500px" placeholder="Pesquisar" autocomplete="off" />
                 <input type="submit" value="Buscar" style="background-color: #0C5DF4;color: #FFFFFF; padding: 9px; border-radius: 5px; border: none" />
-            </form>
+            </form> *@
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#CreateModal">
                 Adicionar cliente
             </button>
@@ -20,15 +21,17 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Email</th>
                         <th>Telefone</th>
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="clientsResult">
                     @foreach (var client in Model.Clients)
                     {
                         <tr>
                             <td>@Html.DisplayFor(p => client.Name)</td>
+                            <td>@Html.DisplayFor(p => client.Email)</td>
                             <td>@Html.DisplayFor(p => client.PhoneNumber)</td>
                             <td>
                                 <a asp-controller="Client" asp-action="ClientDetails" asp-route-id="@client.Id" style="cursor: pointer;"><img src="~/icons/edit_icon.svg" alt="edit" /></a>
@@ -85,6 +88,10 @@
                             <span asp-validation-for="ClientModel.Name" class="text-danger"></span>
                         </div>
                         <div class="d-flex flex-column" style="margin-bottom: .5rem;">
+                            <input asp-for="ClientModel.Email" value="" placeholder="Email" class="input-style" style="width: 250px;background-color: #eaeaea; color: #000000;" />
+                            <span asp-validation-for="ClientModel.Email" class="text-danger"></span>
+                        </div>
+                        <div class="d-flex flex-column" style="margin-bottom: .5rem;">
                             <input asp-for="ClientModel.PhoneNumber" value="" placeholder="Nº Telefone" class="input-style" style="width: 250px;background-color: #eaeaea; color: #000000;" />
                             <span asp-validation-for="ClientModel.PhoneNumber" class="text-danger"></span>
                         </div>
@@ -106,6 +113,26 @@
     <script>
 
         $(document).ready(function () {
+            $('#search').on('input', function(){
+                var query = $(this).val();
+                    $.ajax({
+                        url: '@Url.Action("SearchClient", "Client")',
+                        type: 'GET',
+                        data: {Name: query},
+                        success: function(data){
+                            console.log(data);
+                            $('#clientsResult').empty().show();
+                            data.forEach(function (item){
+                                var name = '<td>' + item.name + '</td>'
+                                var email = '<td>' + item.email + '</td>'
+                                var phone = '<td>' + item.phoneNumber + '</td>'
+                                var actions = '<td><a href="/Client/ClientDetails/' + item.id + '"><img src="@Url.Content("~/icons/edit_icon.svg")" alt="edit" /></a><a id="showModal" onClick="Confirm('+ item.id +')" style="cursor: pointer;"><img src="@Url.Content("~/icons/delete_icon.svg")" alt="delete" /></a><td>'
+                                $('#clientsResult').append('<tr>' + name + email + phone + actions + '</tr>')
+                            })
+                        }
+                    })
+
+            })
             $("#btnDelete").click(function () {
                 var idD = $("#idDelete").val();
                 $.ajax({

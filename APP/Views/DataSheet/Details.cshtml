@@ -1,0 +1,35 @@
+﻿@model RecipeDetailsViewModel
+<h1 style="color: #412E27; padding: 10px 0 10px 0">Detalhes</h1>
+<div class="card-content" style="width: 100%; height: 89vh; padding: 20px;">
+    <div class="d-flex">
+        <a asp-action="DataSheetIndex">
+            <img src="~/icons/arrow_circle_left_icon.svg" alt="Alternate Text" />
+        </a>
+        <h5>@Model.Recipes.Name</h5>
+    </div>
+    <div class="d-flex" style="padding: 10px;width: 100%; height: 50px; font-weight: bold">
+        <div style="width: 30%">Name</div>
+        <div style="width: 16.25%">Categoria</div>
+        <div style="width: 16.25%">Marca</div>
+        <div style="width: 5%">UN</div>
+        <div style="width: 16.25%">Quantidade</div>
+        <div style="width: 16.25%">Peso</div>
+    </div>
+    <div style="overflow-y: auto; height: 66%;">
+        @foreach (var item in Model.Products)
+        {
+            <div class="d-flex input-style" style="width: 100%; height: 50px; margin-bottom: 1rem">
+                <div style="width: 30%">@item.Product.Name</div>
+                <div style="width: 16.25%">@item.Product.ProductCategory</div>
+                <div style="width: 16.25%">@item.Product.Brand</div>
+                <div style="width: 5%;">@item.Unit</div>
+                <div style="width: 16.25%; padding-left: 10px">@item.Amount</div>
+                <div style="width: 16.25%; padding-left: 10px">@item.Weight</div>
+            </div>   
+        }
+    </div>
+    <h6 style="margin-top: 2rem">Modo de preparo</h6>
+    <div style=" width: 100%; height: 16%">
+        <textarea class="input-style" style="width: 100%; height: 100%; min-height: 100%; max-height: 100%" disabled>@Model.Recipes.Description</textarea>
+    </div>
+</div>

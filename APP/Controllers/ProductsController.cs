@@ -3,90 +3,98 @@ using APP.Services.IService;
 using APP.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.VisualBasic;
 
 namespace APP.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly IProductServices _productService;
-        public ProductsController(IProductServices productServices)
+        private readonly IUnitService _unitService;
+        public ProductsController(IProductServices productServices, IUnitService unitService)
         {
             _productService = productServices;
+            _unitService = unitService;
+
         }
         public async Task<ActionResult> ProductIndex(ProductModel prod)
         {
+            var unit = await _unitService.FindAll();
+            IEnumerable<string> listUnit = from u in unit select u.Abbreviation;
             var product = await _productService.FindAll();
             var viewModel = new ProductViewModel
             {
                 //ProductModel = prod,
-                Products = product
+                Products = product,
+                Units = new SelectList(listUnit)
             };
             return View(viewModel);
         }
         public async Task<ActionResult> SearchProduct(string Name)
         {
-            if (Name != null)
+            if (!string.IsNullOrEmpty(Name))
             {
                 var products = await _productService.FindProductByName(Name);
                 if (products == null) products = Enumerable.Empty<ProductModel>();
-                var viewModel = new ProductViewModel
-                {
-                    ProductModel = new ProductModel(),
-                    Products = products
-                };
-                return View(viewModel);
+                return Ok(products);
             }
-            return RedirectToAction(nameof(ProductIndex));
+            else
+            {
+                var products = await _productService.FindAll();
+                if (products == null) products = Enumerable.Empty<ProductModel>();
+                return Ok(products);
+            }
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductViewModel product)
         {
-            if (ModelState.IsValid)
-            {
-                var response = await _productService.CreateProduct(product.ProductModel);
-                if (response == null) return RedirectToAction(nameof(ProductIndex));
-                response.IsSave = true;
-                return RedirectToAction(nameof(ProductIndex));
-            }
+            var un = await _unitService.FindByName(product.Unit);
+            product.ProductModel.IdUnit = un.Id; 
+            product.ProductModel.Unit = un;
+
+            var response = await _productService.CreateProduct(product.ProductModel);
+            if (response == null) return RedirectToAction(nameof(ProductIndex));
+            response.IsSave = true;
             return RedirectToAction(nameof(ProductIndex));
         }
         [HttpPost]
         public async Task<ActionResult> DeleteProduct(long id)
         {
+            var statusProductRecipes = await _productService.DeleteProductRecipes(id);
             var status = await _productService.DeleteProduct(id);
             return RedirectToAction(nameof(ProductIndex));
         }
-        public async Task<ActionResult> EditProduct(ProductModel product)
+        public async Task<ActionResult> EditProduct(ProductViewModel product)
         {
-            var response = await _productService.UpdateProduct(product);
+            var unit = await _unitService.FindByName(product.Unit);
+            product.ProductModel.Unit = unit;
+            product.ProductModel.IdUnit = unit.Id;
+            var response = await _productService.UpdateProduct(product.ProductModel);
             return RedirectToAction(nameof(ProductIndex));
         }
         public async Task<ActionResult> ProductDetails(long id)
         {
             var SelectedProduct = await _productService.FindProductById(id);
+            var unit = await _unitService.FindById(SelectedProduct.IdUnit);
+            SelectedProduct.Unit = unit;
+            var units = await _unitService.FindAll();
+            IEnumerable<string> listUnit = from u in units select u.Abbreviation;
             if (SelectedProduct == null) return BadRequest();
-            return View(SelectedProduct);
-        }
-        public async Task<ActionResult> AddProduct(long id)
-        {
-            TempData.Clear();
-            var product = await _productService.FindProductById(id);
-            if (product == null) return NotFound();
-            string response = JsonConvert.SerializeObject(product);
-            TempData[product.Id.ToString()] = response.ToString();
-            //_contextAccessor.HttpContext?.Session.SetString(id.ToString(), id.ToString());
-            return RedirectToAction("");
-        }
-        public ActionResult GetAddedProducts()
-        {
-            var list = TempData.ToList();
-            foreach (var item in list)
+            var viewModel = new ProductViewModel
             {
-                var value = item.Value.ToString();
-                var prod = JsonConvert.DeserializeObject<ProductModel>(value);
-            }
-            return RedirectToAction("");
+                ProductModel = SelectedProduct,
+                Unit = SelectedProduct.Unit.Abbreviation,
+                Units = new SelectList(listUnit)
+            };
+            return View(viewModel);
+        }
+        public async Task<int> IsProductInAnyRecipe(long id)
+        {
+            var products = await _productService.FindProductInRecipes(id);
+            return products.ToList().Count();
         }
     }
 }

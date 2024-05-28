@@ -7,6 +7,9 @@ namespace APP.Utils
         public string nameRecipe {  get; set; } = string.Empty;
         public string descriptionRecipe {  get; set; } = string.Empty;
         public List<ProductsRecipeModel> productsAdded { get; set; } = new List<ProductsRecipeModel>();
+        public List<ProductsRecipeModel> products { get; set; } = new List<ProductsRecipeModel>();
+        public List<ProductsRecipeModel> productsDeleted { get; set; } = new List<ProductsRecipeModel>();
+        public bool isListAltered { get; set; } = false;
         public int Index { get; set; } = 0;
         public void AddProductToList(ProductsRecipeModel selectedProduct)
         {
@@ -28,6 +31,10 @@ namespace APP.Utils
         {
             Index += 1;
             return Index;
+        }
+        public List<ProductsRecipeModel> EditProduct(ProductsRecipeModel model)
+        {
+            return products;
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cS4DFKPHKkgf5MPgrpBhuVfwnBeidbOXlEMNSNVuPpo=",
+  "Hash": "AGQ/cfmrAonJQJ3FxaHTUzyyYigS1llxNtkcRc5c+Oo=",
   "Source": "APP",
   "BasePath": "_content/APP",
   "Mode": "Default",
@@ -136,6 +136,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\arrow_circle_left_icon.svg",
+      "SourceId": "APP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
+      "BasePath": "_content/APP",
+      "RelativePath": "icons/arrow_circle_left_icon.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\arrow_circle_left_icon.svg"
+    },
+    {
       "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\delete_icon.svg",
       "SourceId": "APP",
       "SourceType": "Discovered",
@@ -221,6 +238,23 @@
       "OriginalItemSpec": "wwwroot\\icons\\home_icon.svg"
     },
     {
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\money_icon.svg",
+      "SourceId": "APP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
+      "BasePath": "_content/APP",
+      "RelativePath": "icons/money_icon.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\money_icon.svg"
+    },
+    {
       "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\order_icon.svg",
       "SourceId": "APP",
       "SourceType": "Discovered",
@@ -236,6 +270,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icons\\order_icon.svg"
+    },
+    {
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\output_icon.svg",
+      "SourceId": "APP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
+      "BasePath": "_content/APP",
+      "RelativePath": "icons/output_icon.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\output_icon.svg"
+    },
+    {
+      "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\payments_icon.svg",
+      "SourceId": "APP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\",
+      "BasePath": "_content/APP",
+      "RelativePath": "icons/payments_icon.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\payments_icon.svg"
     },
     {
       "Identity": "C:\\Projeto_senhoritah\\Projeto_Senhoritah\\APP\\wwwroot\\icons\\wallet_icon.svg",
